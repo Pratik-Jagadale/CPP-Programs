@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)https://en.cppreference.com/w/cpp/container/vector -->
+<html lang="en" dir="ltr" class="client-js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>std::vector - cppreference.com</title>
+
+<meta name="generator" content="MediaWiki 1.21.2">
+<link rel="alternate" type="application/x-wiki" title="Edit" href="https://en.cppreference.com/mwiki/index.php?title=cpp/container/vector&amp;action=edit">
+<link rel="edit" title="Edit" href="https://en.cppreference.com/mwiki/index.php?title=cpp/container/vector&amp;action=edit">
+<link rel="shortcut icon" href="https://en.cppreference.com/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.cppreference.com/mwiki/opensearch_desc.php" title="cppreference.com (en)">
+<link rel="EditURI" type="application/rsd+xml" href="https://en.cppreference.com/mwiki/api.php?action=rsd">
+<link rel="alternate" type="application/atom+xml" title="cppreference.com Atom feed" href="https://en.cppreference.com/mwiki/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="stylesheet" href="./std__vector - cppreference.com_files/load.php">
+<style>
+.t-example-live-link{display:block !important;position:relative;margin-top:1em;padding:0 1em;width:55em}.t-example-live-link > a{display:none}.coliru-btn{background-color:#eeeeee;background-image:linear-gradient(#ffffff,#eeeeee);background-repeat:repeat-x;border:1px solid #cccccc;border-radius:3px;box-shadow:0 1px 0 rgba(255,255,255,0.5);padding:3px;margin:3px;color:#333333;cursor:pointer;display:inline-block;font-size:0.8em;font-weight:bold;line-height:1em}.coliru-btn:hover{background-color:#dddddd;background-image:linear-gradient(#ffffff,#dddddd)}.coliru-btn-disabled{color:#888888}.coliru-btn-disabled:hover{background-color:#eeeeee;background-image:linear-gradient(#ffffff,#eeeeee)}.coliru-powered{font-size:0.8em;position:absolute;bottom:0;right:0}.ace_editor{display:block;position:relative !important;top:0;right:0;bottom:0;left:0;width:100%;height:30em;font-family:DejaVuSansMono,"DejaVu Sans Mono",courier,monospace !important}.t-example-code{margin-top:0 !important}.coliru-output{overflow:auto;max-height:15em}.coliru-output > div{display:table;width:100%}.coliru-output pre{border:none;display:table-row;padding:0;margin:0}.coliru-output-line-shell{background-color:#ffd8d8}.coliru-select-compiler select{background-color:#EEEEEE;background-image:linear-gradient(#FFFFFF,#EEEEEE);background-repeat:repeat-x;border:1px solid #CCCCCC;border-radius:3px 3px 3px 3px;box-shadow:0 1px 0 rgba(255,255,255,0.5);font-size:0.8em;line-height:1em;padding:0;width:12em}
+/* cache key: mwiki1-mwiki_en_:resourceloader:filter:minify-css:7:50a161ae2572e9a968ebbe7279923688 */
+.mw-collapsible-toggle{float:right} li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
+/* cache key: mwiki1-mwiki_en_:resourceloader:filter:minify-css:7:4250852ed2349a0d4d0fc6509a3e7d4c */
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:none;z-index:1099;padding:0;margin:-1px -1px 0 0} html > body .suggestions{margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left}.suggestions-result-current{background-color:#4C59A6;color:white}.suggestions-special .special-label{color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white}.autoellipsis-matched,.highlight{font-weight:bold}
+/* cache key: mwiki1-mwiki_en_:resourceloader:filter:minify-css:7:9780324491b653a3780e2d029bdc140c */</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{text-decoration:none;color:black}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:white}
+/* cache key: mwiki1-mwiki_en_:resourceloader:filter:minify-css:7:52b1797f70c7e4094dfa4191101944e8 */</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="./std__vector - cppreference.com_files/load(1).php">
+<style>a:lang(ar),a:lang(ckb),a:lang(fa),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}#toc{display:none}.editsection{display:none}
+/* cache key: mwiki1-mwiki_en_:resourceloader:filter:minify-css:7:472787eddcf4605d11de8c7ef047234f */</style>
+
+<script src="./std__vector - cppreference.com_files/load(2).php"></script><script src="./std__vector - cppreference.com_files/load(3).php"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"cpp/container/vector","wgTitle":"cpp/container/vector","wgCurRevisionId":128957,"wgArticleId":443,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"cpp/container/vector","wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function(){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":0,"showtoolbar":1,"skin":"cppreference2","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,
+"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"gadget-ColiruCompiler":1,"gadget-MathJax":1});;},{},{});mw.loader.implement("user.tokens",function(){mw.user.tokens.set({"editToken":"+\\","patrolToken":false,"watchToken":false});;},{},{});
+/* cache key: mwiki1-mwiki_en_:resourceloader:filter:minify-js:7:9f05c6caceb9bb1a482b6cebd4c5a330 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax"]);
+}</script><script src="./std__vector - cppreference.com_files/load(4).php"></script>
+<style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000dd;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #909090;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #008000;}
+.cpp.source-cpp .nu0 {color: #000080;}
+.cpp.source-cpp .nu6 {color: #000080;}
+.cpp.source-cpp .nu8 {color: #000080;}
+.cpp.source-cpp .nu12 {color: #000080;}
+.cpp.source-cpp .nu16 {color:#000080;}
+.cpp.source-cpp .nu17 {color:#000080;}
+.cpp.source-cpp .nu18 {color:#000080;}
+.cpp.source-cpp .nu19 {color:#000080;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style><!--[if lt IE 7]><style type="text/css">body{behavior:url("/mwiki/skins/cppreference2/csshover.min.htc")}</style><![endif]--><script id="_carbonads_projs" type="text/javascript" src="./std__vector - cppreference.com_files/CKYITK7M.json"></script><script async="" src="./std__vector - cppreference.com_files/load(5).php"></script><style id="ace_editor.css">.ace_editor {position: relative;overflow: hidden;font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;direction: ltr;text-align: left;}.ace_scroller {position: absolute;overflow: hidden;top: 0;bottom: 0;background-color: inherit;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;cursor: text;}.ace_content {position: absolute;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;min-width: 100%;}.ace_dragging .ace_scroller:before{position: absolute;top: 0;left: 0;right: 0;bottom: 0;content: '';background: rgba(250, 250, 250, 0.01);z-index: 1000;}.ace_dragging.ace_dark .ace_scroller:before{background: rgba(0, 0, 0, 0.01);}.ace_selecting, .ace_selecting * {cursor: text !important;}.ace_gutter {position: absolute;overflow : hidden;width: auto;top: 0;bottom: 0;left: 0;cursor: default;z-index: 4;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;}.ace_gutter-active-line {position: absolute;left: 0;right: 0;}.ace_scroller.ace_scroll-left {box-shadow: 17px 0 16px -16px rgba(0, 0, 0, 0.4) inset;}.ace_gutter-cell {padding-left: 19px;padding-right: 6px;background-repeat: no-repeat;}.ace_gutter-cell.ace_error {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABOFBMVEX/////////QRswFAb/Ui4wFAYwFAYwFAaWGAfDRymzOSH/PxswFAb/SiUwFAYwFAbUPRvjQiDllog5HhHdRybsTi3/Tyv9Tir+Syj/UC3////XurebMBIwFAb/RSHbPx/gUzfdwL3kzMivKBAwFAbbvbnhPx66NhowFAYwFAaZJg8wFAaxKBDZurf/RB6mMxb/SCMwFAYwFAbxQB3+RB4wFAb/Qhy4Oh+4QifbNRcwFAYwFAYwFAb/QRzdNhgwFAYwFAbav7v/Uy7oaE68MBK5LxLewr/r2NXewLswFAaxJw4wFAbkPRy2PyYwFAaxKhLm1tMwFAazPiQwFAaUGAb/QBrfOx3bvrv/VC/maE4wFAbRPBq6MRO8Qynew8Dp2tjfwb0wFAbx6eju5+by6uns4uH9/f36+vr/GkHjAAAAYnRSTlMAGt+64rnWu/bo8eAA4InH3+DwoN7j4eLi4xP99Nfg4+b+/u9B/eDs1MD1mO7+4PHg2MXa347g7vDizMLN4eG+Pv7i5evs/v79yu7S3/DV7/498Yv24eH+4ufQ3Ozu/v7+y13sRqwAAADLSURBVHjaZc/XDsFgGIBhtDrshlitmk2IrbHFqL2pvXf/+78DPokj7+Fz9qpU/9UXJIlhmPaTaQ6QPaz0mm+5gwkgovcV6GZzd5JtCQwgsxoHOvJO15kleRLAnMgHFIESUEPmawB9ngmelTtipwwfASilxOLyiV5UVUyVAfbG0cCPHig+GBkzAENHS0AstVF6bacZIOzgLmxsHbt2OecNgJC83JERmePUYq8ARGkJx6XtFsdddBQgZE2nPR6CICZhawjA4Fb/chv+399kfR+MMMDGOQAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: 2px center;}.ace_gutter-cell.ace_warning {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAmVBMVEX///8AAAD///8AAAAAAABPSzb/5sAAAAB/blH/73z/ulkAAAAAAAD85pkAAAAAAAACAgP/vGz/rkDerGbGrV7/pkQICAf////e0IsAAAD/oED/qTvhrnUAAAD/yHD/njcAAADuv2r/nz//oTj/p064oGf/zHAAAAA9Nir/tFIAAAD/tlTiuWf/tkIAAACynXEAAAAAAAAtIRW7zBpBAAAAM3RSTlMAABR1m7RXO8Ln31Z36zT+neXe5OzooRDfn+TZ4p3h2hTf4t3k3ucyrN1K5+Xaks52Sfs9CXgrAAAAjklEQVR42o3PbQ+CIBQFYEwboPhSYgoYunIqqLn6/z8uYdH8Vmdnu9vz4WwXgN/xTPRD2+sgOcZjsge/whXZgUaYYvT8QnuJaUrjrHUQreGczuEafQCO/SJTufTbroWsPgsllVhq3wJEk2jUSzX3CUEDJC84707djRc5MTAQxoLgupWRwW6UB5fS++NV8AbOZgnsC7BpEAAAAABJRU5ErkJggg==");background-position: 2px center;}.ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAJ0Uk5TAAB2k804AAAAPklEQVQY02NgIB68QuO3tiLznjAwpKTgNyDbMegwisCHZUETUZV0ZqOquBpXj2rtnpSJT1AEnnRmL2OgGgAAIKkRQap2htgAAAAASUVORK5CYII=");background-position: 2px center;}.ace_dark .ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAJFBMVEUAAAChoaGAgIAqKiq+vr6tra1ZWVmUlJSbm5s8PDxubm56enrdgzg3AAAAAXRSTlMAQObYZgAAAClJREFUeNpjYMAPdsMYHegyJZFQBlsUlMFVCWUYKkAZMxZAGdxlDMQBAG+TBP4B6RyJAAAAAElFTkSuQmCC");}.ace_scrollbar {position: absolute;right: 0;bottom: 0;z-index: 6;}.ace_scrollbar-inner {position: absolute;cursor: text;left: 0;top: 0;}.ace_scrollbar-v{overflow-x: hidden;overflow-y: scroll;top: 0;}.ace_scrollbar-h {overflow-x: scroll;overflow-y: hidden;left: 0;}.ace_print-margin {position: absolute;height: 100%;}.ace_text-input {position: absolute;z-index: 0;width: 0.5em;height: 1em;opacity: 0;background: transparent;-moz-appearance: none;appearance: none;border: none;resize: none;outline: none;overflow: hidden;font: inherit;padding: 0 1px;margin: 0 -1px;text-indent: -1em;-ms-user-select: text;-moz-user-select: text;-webkit-user-select: text;user-select: text;white-space: pre!important;}.ace_text-input.ace_composition {background: inherit;color: inherit;z-index: 1000;opacity: 1;text-indent: 0;}.ace_layer {z-index: 1;position: absolute;overflow: hidden;word-wrap: normal;white-space: pre;height: 100%;width: 100%;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;pointer-events: none;}.ace_gutter-layer {position: relative;width: auto;text-align: right;pointer-events: auto;}.ace_text-layer {font: inherit !important;}.ace_cjk {display: inline-block;text-align: center;}.ace_cursor-layer {z-index: 4;}.ace_cursor {z-index: 4;position: absolute;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;border-left: 2px solid;transform: translatez(0);}.ace_slim-cursors .ace_cursor {border-left-width: 1px;}.ace_overwrite-cursors .ace_cursor {border-left-width: 0;border-bottom: 1px solid;}.ace_hidden-cursors .ace_cursor {opacity: 0.2;}.ace_smooth-blinking .ace_cursor {-webkit-transition: opacity 0.18s;transition: opacity 0.18s;}.ace_editor.ace_multiselect .ace_cursor {border-left-width: 1px;}.ace_marker-layer .ace_step, .ace_marker-layer .ace_stack {position: absolute;z-index: 3;}.ace_marker-layer .ace_selection {position: absolute;z-index: 5;}.ace_marker-layer .ace_bracket {position: absolute;z-index: 6;}.ace_marker-layer .ace_active-line {position: absolute;z-index: 2;}.ace_marker-layer .ace_selected-word {position: absolute;z-index: 4;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}.ace_line .ace_fold {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;display: inline-block;height: 11px;margin-top: -2px;vertical-align: middle;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACJJREFUeNpi+P//fxgTAwPDBxDxD078RSX+YeEyDFMCIMAAI3INmXiwf2YAAAAASUVORK5CYII=");background-repeat: no-repeat, repeat-x;background-position: center center, top left;color: transparent;border: 1px solid black;border-radius: 2px;cursor: pointer;pointer-events: auto;}.ace_dark .ace_fold {}.ace_fold:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACBJREFUeNpi+P//fz4TAwPDZxDxD5X4i5fLMEwJgAADAEPVDbjNw87ZAAAAAElFTkSuQmCC");}.ace_tooltip {background-color: #FFF;background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.1));background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1));border: 1px solid gray;border-radius: 1px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);color: black;max-width: 100%;padding: 3px 4px;position: fixed;z-index: 999999;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;cursor: default;white-space: pre;word-wrap: break-word;line-height: normal;font-style: normal;font-weight: normal;letter-spacing: normal;pointer-events: none;}.ace_folding-enabled > .ace_gutter-cell {padding-right: 13px;}.ace_fold-widget {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;margin: 0 -12px 0 1px;display: none;width: 11px;vertical-align: top;background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42mWKsQ0AMAzC8ixLlrzQjzmBiEjp0A6WwBCSPgKAXoLkqSot7nN3yMwR7pZ32NzpKkVoDBUxKAAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: center;border-radius: 3px;border: 1px solid transparent;cursor: pointer;}.ace_folding-enabled .ace_fold-widget {display: inline-block;   }.ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42m3HwQkAMAhD0YzsRchFKI7sAikeWkrxwScEB0nh5e7KTPWimZki4tYfVbX+MNl4pyZXejUO1QAAAABJRU5ErkJggg==");}.ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAGCAYAAAAG5SQMAAAAOUlEQVR42jXKwQkAMAgDwKwqKD4EwQ26sSOkVWjgIIHAzPiCgaqiqnJHZnKICBERHN194O5b9vbLuAVRL+l0YWnZAAAAAElFTkSuQmCCXA==");}.ace_fold-widget:hover {border: 1px solid rgba(0, 0, 0, 0.3);background-color: rgba(255, 255, 255, 0.2);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);}.ace_fold-widget:active {border: 1px solid rgba(0, 0, 0, 0.4);background-color: rgba(0, 0, 0, 0.05);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);}.ace_dark .ace_fold-widget {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHklEQVQIW2P4//8/AzoGEQ7oGCaLLAhWiSwB146BAQCSTPYocqT0AAAAAElFTkSuQmCC");}.ace_dark .ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAH0lEQVQIW2P4//8/AxQ7wNjIAjDMgC4AxjCVKBirIAAF0kz2rlhxpAAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAHElEQVQIW2P4//+/AxAzgDADlOOAznHAKgPWAwARji8UIDTfQQAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget:hover {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);background-color: rgba(255, 255, 255, 0.1);}.ace_dark .ace_fold-widget:active {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);}.ace_fold-widget.ace_invalid {background-color: #FFB4B4;border-color: #DE5555;}.ace_fade-fold-widgets .ace_fold-widget {-webkit-transition: opacity 0.4s ease 0.05s;transition: opacity 0.4s ease 0.05s;opacity: 0;}.ace_fade-fold-widgets:hover .ace_fold-widget {-webkit-transition: opacity 0.05s ease 0.05s;transition: opacity 0.05s ease 0.05s;opacity:1;}.ace_underline {text-decoration: underline;}.ace_bold {font-weight: bold;}.ace_nobold .ace_bold {font-weight: normal;}.ace_italic {font-style: italic;}.ace_error-marker {background-color: rgba(255, 0, 0,0.2);position: absolute;z-index: 9;}.ace_highlight-marker {background-color: rgba(255, 255, 0,0.2);position: absolute;z-index: 8;}.ace_br1 {border-top-left-radius    : 3px;}.ace_br2 {border-top-right-radius   : 3px;}.ace_br3 {border-top-left-radius    : 3px; border-top-right-radius:    3px;}.ace_br4 {border-bottom-right-radius: 3px;}.ace_br5 {border-top-left-radius    : 3px; border-bottom-right-radius: 3px;}.ace_br6 {border-top-right-radius   : 3px; border-bottom-right-radius: 3px;}.ace_br7 {border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px;}.ace_br8 {border-bottom-left-radius : 3px;}.ace_br9 {border-top-left-radius    : 3px; border-bottom-left-radius:  3px;}.ace_br10{border-top-right-radius   : 3px; border-bottom-left-radius:  3px;}.ace_br11{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-left-radius:  3px;}.ace_br12{border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br13{border-top-left-radius    : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br14{border-top-right-radius   : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br15{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px;}
+/*# sourceURL=ace/css/ace_editor.css */</style><style id="ace-tm">.ace-tm .ace_gutter {background: #f0f0f0;color: #333;}.ace-tm .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-tm .ace_fold {background-color: #6B72E6;}.ace-tm {background-color: #FFFFFF;color: black;}.ace-tm .ace_cursor {color: black;}.ace-tm .ace_invisible {color: rgb(191, 191, 191);}.ace-tm .ace_storage,.ace-tm .ace_keyword {color: blue;}.ace-tm .ace_constant {color: rgb(197, 6, 11);}.ace-tm .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-tm .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-tm .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-tm .ace_invalid {background-color: rgba(255, 0, 0, 0.1);color: red;}.ace-tm .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-tm .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-tm .ace_support.ace_type,.ace-tm .ace_support.ace_class {color: rgb(109, 121, 222);}.ace-tm .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-tm .ace_string {color: rgb(3, 106, 7);}.ace-tm .ace_comment {color: rgb(76, 136, 107);}.ace-tm .ace_comment.ace_doc {color: rgb(0, 102, 255);}.ace-tm .ace_comment.ace_doc.ace_tag {color: rgb(128, 159, 191);}.ace-tm .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-tm .ace_variable {color: rgb(49, 132, 149);}.ace-tm .ace_xml-pe {color: rgb(104, 104, 91);}.ace-tm .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-tm .ace_heading {color: rgb(12, 7, 255);}.ace-tm .ace_list {color:rgb(185, 6, 144);}.ace-tm .ace_meta.ace_tag {color:rgb(0, 22, 142);}.ace-tm .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-tm .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-tm.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px white;}.ace-tm .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-tm .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-tm .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-tm .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-tm .ace_gutter-active-line {background-color : #dcdcdc;}.ace-tm .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-tm .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}
+/*# sourceURL=ace/css/ace-tm */</style><style>    .error_widget_wrapper {        background: inherit;        color: inherit;        border:none    }    .error_widget {        border-top: solid 2px;        border-bottom: solid 2px;        margin: 5px 0;        padding: 10px 40px;        white-space: pre-wrap;    }    .error_widget.ace_error, .error_widget_arrow.ace_error{        border-color: #ff5a5a    }    .error_widget.ace_warning, .error_widget_arrow.ace_warning{        border-color: #F1D817    }    .error_widget.ace_info, .error_widget_arrow.ace_info{        border-color: #5a5a5a    }    .error_widget.ace_ok, .error_widget_arrow.ace_ok{        border-color: #5aaa5a    }    .error_widget_arrow {        position: absolute;        border: solid 5px;        border-top-color: transparent!important;        border-right-color: transparent!important;        border-left-color: transparent!important;        top: -5px;    }</style></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_container_vector skin-cppreference2 action-view cpp-navbar" data-new-gr-c-s-check-loaded="14.1018.0" data-gr-ext-installed="">
+        <!-- header -->
+        <div id="mw-head" class="noprint">
+            <div id="cpp-head-first-base">
+                <div id="cpp-head-first">
+                    <h5><a href="https://en.cppreference.com/">
+                        cppreference.com                        </a></h5>
+                    <div id="cpp-head-search">
+                        
+<!-- 0 -->
+<div id="p-search">
+<form action="https://duckduckgo.com/" method="get">
+  <input type="hidden" name="sites" value="cppreference.com">
+  <input type="search" name="q">
+  <input type="submit" value="Search">
+</form>
+</div>
+
+<!-- /0 -->
+                    </div>
+                    <div id="cpp-head-personal">
+                        
+<!-- 0 -->
+<div id="p-personal" class="">
+<span id="pt-createaccount"><a href="https://en.cppreference.com/mwiki/index.php?title=Special:UserLogin&amp;returnto=cpp%2Fcontainer%2Fvector&amp;type=signup">Create account</a></span>	<div class="menu">
+        <ul>
+<li id="pt-login"><a href="https://en.cppreference.com/mwiki/index.php?title=Special:UserLogin&amp;returnto=cpp%2Fcontainer%2Fvector" title="You are encouraged to log in; however, it is not mandatory [alt-shift-o]" accesskey="o">Log in</a></li>        </ul>
+    </div>
+</div>
+
+<!-- /0 -->
+                    </div>
+
+                </div>
+            </div>
+            <div id="cpp-head-second-base">
+                <div id="cpp-head-second">
+                    <div id="cpp-head-tools-left">
+                        
+<!-- 0 -->
+<div id="p-namespaces" class="vectorTabs">
+	<h5>Namespaces</h5>
+	<ul>
+					<li id="ca-nstab-main" class="selected"><span><a href="https://en.cppreference.com/w/cpp/container/vector" title="View the content page [alt-shift-c]" accesskey="c">Page</a></span></li>
+					<li id="ca-talk"><span><a href="https://en.cppreference.com/w/Talk:cpp/container/vector" title="Discussion about the content page [alt-shift-t]" accesskey="t">Discussion</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-variants" class="vectorMenu emptyPortlet">
+		<h5><span>Variants</span><a href="https://en.cppreference.com/w/cpp/container/vector#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+                    </div>
+                    <div id="cpp-head-tools-right">
+                        
+<!-- 0 -->
+<div id="p-views" class="vectorTabs">
+	<h5>Views</h5>
+	<ul>
+					<li id="ca-view" class="selected"><span><a href="https://en.cppreference.com/w/cpp/container/vector">View</a></span></li>
+					<li id="ca-edit"><span><a href="https://en.cppreference.com/mwiki/index.php?title=cpp/container/vector&amp;action=edit" title="You can edit this page. Please use the preview button before saving [alt-shift-e]" accesskey="e">Edit</a></span></li>
+					<li id="ca-history" class="collapsible"><span><a href="https://en.cppreference.com/mwiki/index.php?title=cpp/container/vector&amp;action=history" title="Past revisions of this page [alt-shift-h]" accesskey="h">History</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-cactions" class="vectorMenu emptyPortlet">
+	<h5><span>Actions</span><a href="https://en.cppreference.com/w/cpp/container/vector#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /header -->
+        <!-- content -->
+<style type="text/css">
+#carbonads {
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  text-align: center;
+  left: -170px;
+  max-width: 150px;
+  border-radius: 4px;
+  border: solid 1px hsla(0, 0%, 0%, .1);
+  background-color: hsl(0, 0%, 98%);
+  font-size: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu,
+  Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+#carbonads a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#carbonads a:hover {
+  color: inherit;
+}
+
+#carbonads span {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.carbon-img {
+  display: block;
+  margin-bottom: 8px;
+  max-width: 150px;
+  line-height: 1;
+}
+
+.carbon-img img {
+  display: block;
+  margin: 0 auto;
+  max-width: 150px !important;
+  width: 150px;
+  height: auto;
+}
+
+.carbon-text {
+  display: block;
+  padding: 0 1em 8px;
+}
+
+.carbon-poweredby {
+  display: block;
+  padding: 8px 12px;
+  background: repeating-linear-gradient(-45deg, transparent, transparent 5px, hsla(0, 0%, 0%, .025) 5px, hsla(0, 0%, 0%, .025) 10px) hsla(203, 11%, 95%, .4);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  font-weight: 600;
+  font-size: 9px;
+  line-height: 1;
+}
+html { font-variant-ligatures: no-common-ligatures; }
+</style>
+        <div id="cpp-content-base">
+            <div id="content">
+                <a id="top"></a>
+                <div id="mw-js-message" style="display:none;"></div>
+                                <!-- firstHeading -->
+<script async="" type="text/javascript" src="./std__vector - cppreference.com_files/carbon.js.download" id="_carbonads_js"></script><div id="carbonads"><span><span class="carbon-wrap"><a href="https://srv.carbonads.net/ads/click/x/GTND42JLCESDPK7WCE7LYKQNCVBD62JECEYDLZ3JCY7DVK7ICVBIL23KC6YICKJLCKBI42QUC67DT5QECKYDP23WHEYIKKJWCYBIV53ECTNCYBZ52K?segment=placement:cppreferencecom;" class="carbon-img" target="_blank" rel="noopener sponsored"><img src="./std__vector - cppreference.com_files/1622721464-bsa-carbon.png" alt="ads via Carbon" border="0" height="100" width="130" style="max-width: 130px;"></a><a href="https://srv.carbonads.net/ads/click/x/GTND42JLCESDPK7WCE7LYKQNCVBD62JECEYDLZ3JCY7DVK7ICVBIL23KC6YICKJLCKBI42QUC67DT5QECKYDP23WHEYIKKJWCYBIV53ECTNCYBZ52K?segment=placement:cppreferencecom;" class="carbon-text" target="_blank" rel="noopener sponsored">We're hiring! Help make Carbon Ads the premier ad network for the dev and creator community.</a></span><a href="http://carbonads.net/?utm_source=cppreferencecom&amp;utm_medium=ad_via_link&amp;utm_campaign=in_unit&amp;utm_term=carbon" class="carbon-poweredby" target="_blank" rel="noopener sponsored">ads via Carbon</a></span></div>
+                <h1 id="firstHeading" class="firstHeading"><span style="font-size:0.7em; line-height:130%">std::</span>vector</h1>
+                <!-- /firstHeading -->
+                <!-- bodyContent -->
+                <div id="bodyContent">
+                                        <!-- tagline -->
+                    <div id="siteSub">From cppreference.com</div>
+                    <!-- /tagline -->
+                                        <!-- subtitle -->
+                    <div id="contentSub"><span class="subpages">&lt; <a href="https://en.cppreference.com/w/cpp" title="cpp">cpp</a>‎ | <a href="https://en.cppreference.com/w/cpp/container" title="cpp/container">container</a></span></div>
+                    <!-- /subtitle -->
+                                                            <!-- bodycontent -->
+                    <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="t-navbar" style=""><div class="t-navbar-sep">&nbsp;</div><div class="t-navbar-head"><a href="https://en.cppreference.com/w/cpp" title="cpp"> C++</a><div class="t-navbar-menu"><div><div><table class="t-nv-begin" cellpadding="0" style="line-height:1.1em;">
+<tbody><tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/language" title="cpp/language"> Language</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/header" title="cpp/header"> Standard Library Headers</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/freestanding" title="cpp/freestanding"> Freestanding and hosted implementations</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/named_req" title="cpp/named req"> Named requirements </a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/utility#Language_support" title="cpp/utility"> Language support library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/concepts" title="cpp/concepts"> Concepts library</a> <span class="t-mark-rev t-since-cxx20">(C++20)</span> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/error" title="cpp/error"> Diagnostics library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/utility" title="cpp/utility"> Utilities library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/string" title="cpp/string"> Strings library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/container" title="cpp/container"> Containers library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/iterator" title="cpp/iterator"> Iterators library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/ranges" title="cpp/ranges"> Ranges library</a> <span class="t-mark-rev t-since-cxx20">(C++20)</span> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/algorithm" title="cpp/algorithm"> Algorithms library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/numeric" title="cpp/numeric"> Numerics library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/locale" title="cpp/locale"> Localizations library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/io" title="cpp/io"> Input/output library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/filesystem" title="cpp/filesystem"> Filesystem library</a> <span class="t-mark-rev t-since-cxx17">(C++17)</span> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/regex" title="cpp/regex"> Regular expressions library</a> <span class="t-mark-rev t-since-cxx11">(C++11)</span> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/atomic" title="cpp/atomic"> Atomic operations library</a> <span class="t-mark-rev t-since-cxx11">(C++11)</span> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/thread" title="cpp/thread"> Thread support library</a> <span class="t-mark-rev t-since-cxx11">(C++11)</span> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/experimental" title="cpp/experimental"> Technical Specifications</a> </td></tr>
+</tbody></table></div><div><span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/navbar_content&amp;action=edit">[edit]</a></span></div></div></div></div><div class="t-navbar-sep">&nbsp;</div><div class="t-navbar-head"><a href="https://en.cppreference.com/w/cpp/container" title="cpp/container"> Containers library</a><div class="t-navbar-menu"><div><div><table class="t-nv-begin" cellpadding="0" style="">
+<tbody><tr class="t-nv-h1"><td colspan="5"> Sequence</td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/array" title="cpp/container/array"><span class="t-lines"><span>array</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><strong class="selflink"><span class="t-lines"><span>vector</span></span></strong></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/deque" title="cpp/container/deque"><span class="t-lines"><span>deque</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/forward_list" title="cpp/container/forward list"><span class="t-lines"><span>forward_list</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/list" title="cpp/container/list"><span class="t-lines"><span>list</span></span></a></div></div></td></tr>
+<tr class="t-nv-h1"><td colspan="5"> Associative</td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/set" title="cpp/container/set"><span class="t-lines"><span>set</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/multiset" title="cpp/container/multiset"><span class="t-lines"><span>multiset</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/map" title="cpp/container/map"><span class="t-lines"><span>map</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/multimap" title="cpp/container/multimap"><span class="t-lines"><span>multimap</span></span></a></div></div></td></tr>
+<tr class="t-nv-h1"><td colspan="5"> Unordered associative</td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/unordered_set" title="cpp/container/unordered set"><span class="t-lines"><span>unordered_set</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/unordered_multiset" title="cpp/container/unordered multiset"><span class="t-lines"><span>unordered_multiset</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/unordered_map" title="cpp/container/unordered map"><span class="t-lines"><span>unordered_map</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/unordered_multimap" title="cpp/container/unordered multimap"><span class="t-lines"><span>unordered_multimap</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv-h1"><td colspan="5"> Adaptors</td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/stack" title="cpp/container/stack"><span class="t-lines"><span>stack</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/queue" title="cpp/container/queue"><span class="t-lines"><span>queue</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/priority_queue" title="cpp/container/priority queue"><span class="t-lines"><span>priority_queue</span></span></a></div></div></td></tr>
+<tr class="t-nv-h1"><td colspan="5"> Views</td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/span" title="cpp/container/span"><span class="t-lines"><span>span</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div></td></tr>
+</tbody></table></div><div><span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/navbar_content&amp;action=edit">[edit]</a></span></div></div></div></div><div class="t-navbar-sep">&nbsp;</div><div class="t-navbar-head"><strong class="selflink"><tt>std::vector</tt></strong><div class="t-navbar-menu"><div><div><table class="t-nv-begin" cellpadding="0" style="">
+<tbody><tr class="t-nv-h1"><td colspan="5"> Member functions</td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/vector" title="cpp/container/vector/vector"><span class="t-lines"><span>vector::vector</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/~vector" title="cpp/container/vector/~vector"><span class="t-lines"><span>vector::~vector</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/operator%3D" title="cpp/container/vector/operator="><span class="t-lines"><span>vector::operator=</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/assign" title="cpp/container/vector/assign"><span class="t-lines"><span>vector::assign</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/get_allocator" title="cpp/container/vector/get allocator"><span class="t-lines"><span>vector::get_allocator</span></span></a></div></div></td></tr>
+<tr class="t-nv-h2"><td colspan="5"> Element access</td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/at" title="cpp/container/vector/at"><span class="t-lines"><span>vector::at</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/operator_at" title="cpp/container/vector/operator at"><span class="t-lines"><span>vector::operator[]</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/front" title="cpp/container/vector/front"><span class="t-lines"><span>vector::front</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/back" title="cpp/container/vector/back"><span class="t-lines"><span>vector::back</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/data" title="cpp/container/vector/data"><span class="t-lines"><span>vector::data</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv-h2"><td colspan="5"> Iterators</td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/begin" title="cpp/container/vector/begin"><span class="t-lines"><span>vector::begin</span><span>vector::cbegin</span></span></a></div><div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/end" title="cpp/container/vector/end"><span class="t-lines"><span>vector::end</span><span>vector::cend</span></span></a></div><div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/rbegin" title="cpp/container/vector/rbegin"><span class="t-lines"><span>vector::rbegin</span><span>vector::crbegin</span></span></a></div><div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/rend" title="cpp/container/vector/rend"><span class="t-lines"><span>vector::rend</span><span>vector::crend</span></span></a></div><div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv-h2"><td colspan="5"> Capacity</td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/empty" title="cpp/container/vector/empty"><span class="t-lines"><span>vector::empty</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/size" title="cpp/container/vector/size"><span class="t-lines"><span>vector::size</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/max_size" title="cpp/container/vector/max size"><span class="t-lines"><span>vector::max_size</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/reserve" title="cpp/container/vector/reserve"><span class="t-lines"><span>vector::reserve</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/capacity" title="cpp/container/vector/capacity"><span class="t-lines"><span>vector::capacity</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/shrink_to_fit" title="cpp/container/vector/shrink to fit"><span class="t-lines"><span>vector::shrink_to_fit</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv-h2"><td colspan="5"> Modifiers</td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/clear" title="cpp/container/vector/clear"><span class="t-lines"><span>vector::clear</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/insert" title="cpp/container/vector/insert"><span class="t-lines"><span>vector::insert</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/emplace" title="cpp/container/vector/emplace"><span class="t-lines"><span>vector::emplace</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/erase" title="cpp/container/vector/erase"><span class="t-lines"><span>vector::erase</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/push_back" title="cpp/container/vector/push back"><span class="t-lines"><span>vector::push_back</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/emplace_back" title="cpp/container/vector/emplace back"><span class="t-lines"><span>vector::emplace_back</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/pop_back" title="cpp/container/vector/pop back"><span class="t-lines"><span>vector::pop_back</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/resize" title="cpp/container/vector/resize"><span class="t-lines"><span>vector::resize</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/swap" title="cpp/container/vector/swap"><span class="t-lines"><span>vector::swap</span></span></a></div></div></td></tr>
+<tr class="t-nv-h1"><td colspan="5"> Non-member functions</td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/swap2" title="cpp/container/vector/swap2"><span class="t-lines"><span>std::swap</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/erase2" title="cpp/container/vector/erase2"><span class="t-lines"><span>erase</span><span>erase_if</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/container/vector/operator_cmp" title="cpp/container/vector/operator cmp"><span class="t-lines"><span>operator==</span><span>operator!=</span><span>operator&lt;</span><span>operator&gt;</span><span>operator&lt;=</span><span>operator&gt;=</span><span>operator&lt;=&gt;</span></span></a></div><div><span class="t-lines"><span></span><span><span class="t-mark-rev t-until-cxx20">(until C++20)</span></span><span><span class="t-mark-rev t-until-cxx20">(until C++20)</span></span><span><span class="t-mark-rev t-until-cxx20">(until C++20)</span></span><span><span class="t-mark-rev t-until-cxx20">(until C++20)</span></span><span><span class="t-mark-rev t-until-cxx20">(until C++20)</span></span><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div></td></tr>
+<tr class="t-nv-h1"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/container/vector/deduction_guides" title="cpp/container/vector/deduction guides">Deduction guides</a><span class="t-mark-rev t-since-cxx17">(C++17)</span></td></tr>
+</tbody></table></div><div><span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/vector/navbar_content&amp;action=edit">[edit]</a></span></div></div></div></div><div class="t-navbar-sep">&nbsp;</div></div>
+<table class="t-dcl-begin"><tbody>
+<tr class="t-dsc-header">
+<td> <div>Defined in header <code><a href="https://en.cppreference.com/w/cpp/header/vector" title="cpp/header/vector">&lt;vector&gt;</a></code>
+ </div></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td> <div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span><br>
+<p>&nbsp; &nbsp; <span class="kw1">class</span> T,<br>
+&nbsp; &nbsp; <span class="kw1">class</span> Allocator <span class="sy1">=</span> <a href="http://en.cppreference.com/w/cpp/memory/allocator"><span class="kw701">std::<span class="me2">allocator</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><br>
+</p>
+<span class="sy1">&gt;</span> <span class="kw1">class</span> vector<span class="sy4">;</span></span></div></td>
+<td> (1) </td>
+<td class="t-dcl-nopad">  </td>
+</tr> 
+<tr class="t-dcl t-since-cxx17">
+<td> <div><span class="mw-geshi cpp source-cpp"><span class="kw1">namespace</span> pmr <span class="br0">{</span><br>
+<p>&nbsp; &nbsp; <span class="kw1">template</span> <span class="sy1">&lt;</span><span class="kw1">class</span> T<span class="sy1">&gt;</span><br>
+&nbsp; &nbsp; <span class="kw1">using</span> vector <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">vector</span><span class="sy1">&lt;</span>T, <a href="http://en.cppreference.com/w/cpp/memory/polymorphic_allocator"><span class="kw708">std::<span class="me2">pmr</span><span class="sy4">::</span><span class="me2">polymorphic_allocator</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;&gt;</span><span class="sy4">;</span><br>
+</p>
+<span class="br0">}</span></span></div></td>
+<td> (2) </td>
+<td> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> </td>
+</tr>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+</tbody></table>
+<div class="t-li1"><span class="t-li">1)</span> <code>std::vector</code> is a sequence container that encapsulates dynamic size arrays.</div>
+<div class="t-li1"><span class="t-li">2)</span> <code>std::pmr::vector</code> is an alias template that uses a <a href="https://en.cppreference.com/w/cpp/memory/polymorphic_allocator" title="cpp/memory/polymorphic allocator">polymorphic allocator</a>.</div>
+<p>The elements are stored contiguously, which means that elements can be accessed not only through iterators, but also using offsets to regular pointers to elements. This means that  a pointer to an element of a vector may be passed to any function that expects a pointer to an element of an array.
+</p><p>The storage of the vector is handled automatically, being expanded and contracted as needed. Vectors usually occupy more space than static arrays, because more memory is allocated to handle future growth. This way a vector does not need to reallocate each time an element is inserted, but only when the additional memory is exhausted. The total amount of allocated memory can be queried using <span class="t-lc"><a href="https://en.cppreference.com/w/cpp/container/vector/capacity" title="cpp/container/vector/capacity">capacity()</a></span> function. <span class="t-rev-inl t-since-cxx11"><span> Extra memory can be returned to the system via a call to <span class="t-lc"><a href="https://en.cppreference.com/w/cpp/container/vector/shrink_to_fit" title="cpp/container/vector/shrink to fit">shrink_to_fit()</a></span>.</span> <span><span class="t-mark-rev t-since-cxx11">(since C++11)</span></span></span>
+</p><p>Reallocations are usually costly operations in terms of performance. The <span class="t-lc"><a href="https://en.cppreference.com/w/cpp/container/vector/reserve" title="cpp/container/vector/reserve">reserve()</a></span> function can be used to eliminate reallocations if the number of elements is known beforehand.
+</p><p>The complexity (efficiency) of common operations on vectors is as follows:
+</p>
+<ul><li> Random access - constant <span class="texhtml" style="white-space: nowrap;">𝓞(1)</span>
+</li><li> Insertion or removal of elements at the end - amortized constant <span class="texhtml" style="white-space: nowrap;">𝓞(1)</span>
+</li><li> Insertion or removal of elements - linear in the distance to the end of the vector <span class="texhtml" style="white-space: nowrap;">𝓞(n)</span>
+</li></ul>
+<p><code>std::vector</code> (for <code>T</code> other than <code>bool</code>) meets the requirements of <a href="https://en.cppreference.com/w/cpp/named_req/Container" title="cpp/named req/Container"><span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">Container</span></a>, <a href="https://en.cppreference.com/w/cpp/named_req/AllocatorAwareContainer" title="cpp/named req/AllocatorAwareContainer"><span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">AllocatorAwareContainer</span></a>, <a href="https://en.cppreference.com/w/cpp/named_req/SequenceContainer" title="cpp/named req/SequenceContainer"><span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">SequenceContainer</span></a> <span class="t-rev-inl t-since-cxx17"><span>, <a href="https://en.cppreference.com/w/cpp/named_req/ContiguousContainer" title="cpp/named req/ContiguousContainer"><span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">ContiguousContainer</span></a></span> <span><span class="t-mark-rev t-since-cxx17">(since C++17)</span></span></span> and <a href="https://en.cppreference.com/w/cpp/named_req/ReversibleContainer" title="cpp/named req/ReversibleContainer"><span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">ReversibleContainer</span></a>.
+</p>
+ <table class="t-rev-begin">
+<tbody><tr class="t-rev t-since-cxx20"><td>
+<p>Member functions of <code>std::vector</code> are <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span></span></span>: it is possible to create and use <code>std::vector</code> objects in the evaluation of a constant expression.
+</p><p>However, <code>std::vector</code> objects generally cannot be <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span></span></span>, because any dynamically allocated storage must be released in the same evaluation of constant expression.
+</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx20">(since C++20)</span></td></tr>
+</tbody></table>
+<table id="toc" class="toc"><tbody><tr><td><div id="toctitle"><h2>Contents</h2><span class="toctoggle">&nbsp;[<a href="https://en.cppreference.com/w/cpp/container/vector#" class="internal" id="togglelink">hide</a>]&nbsp;</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="https://en.cppreference.com/w/cpp/container/vector#Template_parameters"><span class="tocnumber">1</span> <span class="toctext">Template parameters</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="https://en.cppreference.com/w/cpp/container/vector#Specializations"><span class="tocnumber">2</span> <span class="toctext">Specializations</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="https://en.cppreference.com/w/cpp/container/vector#Iterator_invalidation"><span class="tocnumber">3</span> <span class="toctext">Iterator invalidation</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="https://en.cppreference.com/w/cpp/container/vector#Member_types"><span class="tocnumber">4</span> <span class="toctext">Member types</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="https://en.cppreference.com/w/cpp/container/vector#Member_functions"><span class="tocnumber">5</span> <span class="toctext">Member functions</span></a>
+<ul>
+<li class="toclevel-2"><a href="https://en.cppreference.com/w/cpp/container/vector#Element_access"><span class="tocnumber">5.1</span> <span class="toctext">Element access</span></a></li>
+<li class="toclevel-2"><a href="https://en.cppreference.com/w/cpp/container/vector#Iterators"><span class="tocnumber">5.2</span> <span class="toctext">Iterators</span></a></li>
+<li class="toclevel-2"><a href="https://en.cppreference.com/w/cpp/container/vector#Capacity"><span class="tocnumber">5.3</span> <span class="toctext">Capacity</span></a></li>
+<li class="toclevel-2"><a href="https://en.cppreference.com/w/cpp/container/vector#Modifiers"><span class="tocnumber">5.4</span> <span class="toctext">Modifiers</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="https://en.cppreference.com/w/cpp/container/vector#Non-member_functions"><span class="tocnumber">6</span> <span class="toctext">Non-member functions</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="https://en.cppreference.com/w/cpp/container/vector#Deduction_guides.28since_C.2B.2B17.29"><span class="tocnumber">7</span> <span class="toctext">Deduction guides<span>(since C++17)</span></span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="https://en.cppreference.com/w/cpp/container/vector#Example"><span class="tocnumber">8</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="https://en.cppreference.com/w/cpp/container/vector#Defect_reports"><span class="tocnumber">9</span> <span class="toctext">Defect reports</span></a></li>
+</ul>
+</td></tr></tbody></table>
+<h3><span class="editsection">[<a href="https://en.cppreference.com/mwiki/index.php?title=cpp/container/vector&amp;action=edit&amp;section=1" title="Edit section: Template parameters">edit</a>]</span> <span class="mw-headline" id="Template_parameters">Template parameters</span></h3>
+<table class="t-par-begin">
+
+
+<tbody><tr class="t-par">
+<td>  T
+</td>
+<td> -
+</td>
+<td>  The type of the elements.
+ <table class="t-rev-begin">
+<tbody><tr class="t-rev t-until-cxx11"><td> <code>T</code> must meet the requirements of <a href="https://en.cppreference.com/w/cpp/named_req/CopyAssignable" title="cpp/named req/CopyAssignable"><span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">CopyAssignable</span></a> and <a href="https://en.cppreference.com/w/cpp/named_req/CopyConstructible" title="cpp/named req/CopyConstructible"><span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">CopyConstructible</span></a>. </td>
+<td><span class="t-mark-rev t-until-cxx11">(until C++11)</span></td></tr>
+<tr class="t-rev t-since-cxx11 t-until-cxx17"><td> The requirements that are imposed on the elements depend on the actual operations performed on the container. Generally, it is required that element type is a complete type and meets the requirements of <a href="https://en.cppreference.com/w/cpp/named_req/Erasable" title="cpp/named req/Erasable"><span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">Erasable</span></a>, but many member functions impose stricter requirements. </td>
+<td><span class="t-mark-rev t-since-cxx11">(since C++11)</span><br><span class="t-mark-rev t-until-cxx17">(until C++17)</span></td></tr>
+<tr class="t-rev t-since-cxx17"><td> 
+The requirements that are imposed on the elements depend on the actual operations performed on the container. Generally, it is required that element type meets the requirements of <a href="https://en.cppreference.com/w/cpp/named_req/Erasable" title="cpp/named req/Erasable"><span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">Erasable</span></a>, but many member functions impose stricter requirements. This container (but not its members) can be instantiated with an incomplete element type if the allocator satisfies the <a href="https://en.cppreference.com/w/cpp/named_req/Allocator#Allocator_completeness_requirements" title="cpp/named req/Allocator">allocator completeness requirements</a>. </td>
+<td><span class="t-mark-rev t-since-cxx17">(since C++17)</span></td></tr>
+</tbody></table>
+<p><span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/param_list_T&amp;action=edit">[edit]</a></span>
+</p>
+</td></tr>
+<tr class="t-par">
+<td>  Allocator
+</td>
+<td> -
+</td>
+<td>  An allocator that is used to acquire/release memory and to construct/destroy the elements in that memory. The type must meet the requirements of <a href="https://en.cppreference.com/w/cpp/named_req/Allocator" title="cpp/named req/Allocator"><span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">Allocator</span></a>. <span class="t-rev-inl t-until-cxx20"><span>The behavior is undefined</span> <span><span class="t-mark-rev t-until-cxx20">(until C++20)</span></span></span><span class="t-rev-inl t-since-cxx20"><span>The program is ill-formed</span> <span><span class="t-mark-rev t-since-cxx20">(since C++20)</span></span></span> if <span class="t-c"><span class="mw-geshi cpp source-cpp">Allocator<span class="sy4">::</span><span class="me2">value_type</span></span></span> is not the same as <span class="t-c"><span class="mw-geshi cpp source-cpp">T</span></span>. <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/param_list_Allocator&amp;action=edit">[edit]</a></span>
+</td></tr></tbody></table>
+<h3><span class="editsection">[<a href="https://en.cppreference.com/mwiki/index.php?title=cpp/container/vector&amp;action=edit&amp;section=2" title="Edit section: Specializations">edit</a>]</span> <span class="mw-headline" id="Specializations">Specializations</span></h3>
+<p>The standard library provides a specialization of <code>std::vector</code> for the type <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span></span>, which may be optimized for space efficiency.
+</p>
+<table class="t-dsc-begin">
+
+<tbody><tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector_bool" title="cpp/container/vector bool"> <span class="t-lines"><span>vector<span class="t-dsc-small">&lt;bool&gt;</span></span></span></a></div></div>
+</td>
+<td>   space-efficient dynamic bitset <br> <span class="t-mark">(class template specialization)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_vector_bool&amp;action=edit">[edit]</a></span>
+</td></tr>
+</tbody></table>
+<h3><span class="editsection">[<a href="https://en.cppreference.com/mwiki/index.php?title=cpp/container/vector&amp;action=edit&amp;section=3" title="Edit section: Iterator invalidation">edit</a>]</span> <span class="mw-headline" id="Iterator_invalidation">Iterator invalidation</span></h3>
+<table class="dsctable" style="font-size:0.8em">
+<tbody><tr>
+<th> Operations
+</th>
+<th> Invalidated
+</th></tr>
+<tr>
+<td> All read only operations
+</td>
+<td> Never
+</td></tr>
+<tr>
+<td> <span class="t-lc"><a href="https://en.cppreference.com/w/cpp/container/vector/swap" title="cpp/container/vector/swap">swap</a></span>, <span class="t-lc"><a href="https://en.cppreference.com/w/cpp/algorithm/swap" title="cpp/algorithm/swap">std::swap</a></span>
+</td>
+<td> <span class="t-lc"><a href="https://en.cppreference.com/w/cpp/container/vector/end" title="cpp/container/vector/end">end()</a></span>
+</td></tr>
+<tr>
+<td> <span class="t-lc"><a href="https://en.cppreference.com/w/cpp/container/vector/clear" title="cpp/container/vector/clear">clear</a></span>, <span class="t-lc"><a href="https://en.cppreference.com/w/cpp/container/vector/operator%3D" title="cpp/container/vector/operator=">operator=</a></span>, <span class="t-lc"><a href="https://en.cppreference.com/w/cpp/container/vector/assign" title="cpp/container/vector/assign">assign</a></span>
+</td>
+<td> Always
+</td></tr>
+<tr>
+<td> <span class="t-lc"><a href="https://en.cppreference.com/w/cpp/container/vector/reserve" title="cpp/container/vector/reserve">reserve</a></span>, <span class="t-lc"><a href="https://en.cppreference.com/w/cpp/container/vector/shrink_to_fit" title="cpp/container/vector/shrink to fit">shrink_to_fit</a></span>
+</td>
+<td> If the vector changed capacity, all of them. If not, none.
+</td></tr>
+<tr>
+<td> <span class="t-lc"><a href="https://en.cppreference.com/w/cpp/container/vector/erase" title="cpp/container/vector/erase">erase</a></span>
+</td>
+<td> Erased elements and all elements after them (including <span class="t-lc"><a href="https://en.cppreference.com/w/cpp/container/vector/end" title="cpp/container/vector/end">end()</a></span>)
+</td></tr>
+<tr>
+<td> <span class="t-lc"><a href="https://en.cppreference.com/w/cpp/container/vector/push_back" title="cpp/container/vector/push back">push_back</a></span>, <span class="t-lc"><a href="https://en.cppreference.com/w/cpp/container/vector/emplace_back" title="cpp/container/vector/emplace back">emplace_back</a></span>
+</td>
+<td> If the vector changed capacity, all of them. If not, only end().
+</td></tr>
+<tr>
+<td> <span class="t-lc"><a href="https://en.cppreference.com/w/cpp/container/vector/insert" title="cpp/container/vector/insert">insert</a></span>, <span class="t-lc"><a href="https://en.cppreference.com/w/cpp/container/vector/emplace" title="cpp/container/vector/emplace">emplace</a></span>
+</td>
+<td> If the vector changed capacity, all of them. If not, only those at or after the insertion point (including end()).
+</td></tr>
+<tr>
+<td> <span class="t-lc"><a href="https://en.cppreference.com/w/cpp/container/vector/resize" title="cpp/container/vector/resize">resize</a></span>
+</td>
+<td> If the vector changed capacity, all of them. If not, only end() and any elements erased.
+</td></tr>
+<tr>
+<td> <span class="t-lc"><a href="https://en.cppreference.com/w/cpp/container/vector/pop_back" title="cpp/container/vector/pop back">pop_back</a></span>
+</td>
+<td> The element erased and <span class="t-lc"><a href="https://en.cppreference.com/w/cpp/container/vector/end" title="cpp/container/vector/end">end()</a></span>.
+</td></tr></tbody></table>
+<h3><span class="editsection">[<a href="https://en.cppreference.com/mwiki/index.php?title=cpp/container/vector&amp;action=edit&amp;section=4" title="Edit section: Member types">edit</a>]</span> <span class="mw-headline" id="Member_types">Member types</span></h3>
+<table class="t-dsc-begin">
+
+<tbody><tr class="t-dsc-hitem">
+<td>  Member type
+</td>
+<td>  Definition
+</td></tr>
+
+
+<tr class="t-dsc">
+<td>  <code>value_type</code>
+</td>
+<td>  <code>T</code> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_value_type&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <code>allocator_type</code>
+</td>
+<td>  <code>Allocator</code> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_allocator_type&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <code>size_type</code>
+</td>
+<td>  Unsigned integer type (usually <span class="t-lc"><a href="https://en.cppreference.com/w/cpp/types/size_t" title="cpp/types/size t">std::size_t</a></span>) <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_size_type&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <code>difference_type</code>
+</td>
+<td>  Signed integer type (usually <span class="t-lc"><a href="https://en.cppreference.com/w/cpp/types/ptrdiff_t" title="cpp/types/ptrdiff t">std::ptrdiff_t</a></span>) <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_difference_type&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <code>reference</code>
+</td>
+<td>  <span class="t-c"><span class="mw-geshi cpp source-cpp">value_type<span class="sy3">&amp;</span></span></span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_reference&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <code>const_reference</code>
+</td>
+<td>  <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">const</span> value_type<span class="sy3">&amp;</span></span></span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_const_reference&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <code>pointer</code>
+</td>
+<td>   <table class="t-rev-begin t-rev-begin-noborder"><tbody><tr class="t-rev t-until-cxx11"><td><code>Allocator::pointer</code></td>
+<td><span class="t-mark-rev t-until-cxx11">(until C++11)</span></td></tr><tr class="t-rev t-since-cxx11"><td><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="http://en.cppreference.com/w/cpp/memory/allocator_traits"><span class="kw702">std::<span class="me2">allocator_traits</span></span></a><span class="sy1">&lt;</span>Allocator<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">pointer</span></span></span></td>
+<td><span class="t-mark-rev t-since-cxx11">(since C++11)</span></td></tr></tbody></table> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_pointer&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <code>const_pointer</code>
+</td>
+<td>   <table class="t-rev-begin t-rev-begin-noborder"><tbody><tr class="t-rev t-until-cxx11"><td><code>Allocator::const_pointer</code></td>
+<td><span class="t-mark-rev t-until-cxx11">(until C++11)</span></td></tr><tr class="t-rev t-since-cxx11"><td><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="http://en.cppreference.com/w/cpp/memory/allocator_traits"><span class="kw702">std::<span class="me2">allocator_traits</span></span></a><span class="sy1">&lt;</span>Allocator<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">const_pointer</span></span></span></td>
+<td><span class="t-mark-rev t-since-cxx11">(since C++11)</span></td></tr></tbody></table> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_const_pointer&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <code>iterator</code>
+</td>
+<td>  <a href="https://en.cppreference.com/w/cpp/named_req/RandomAccessIterator" title="cpp/named req/RandomAccessIterator"><span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">LegacyRandomAccessIterator</span></a> to <code>value_type</code> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_iterator&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <code>const_iterator</code>
+</td>
+<td>  <a href="https://en.cppreference.com/w/cpp/named_req/RandomAccessIterator" title="cpp/named req/RandomAccessIterator"><span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">LegacyRandomAccessIterator</span></a> to <code>const value_type</code> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_const_iterator&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <code>reverse_iterator</code>
+</td>
+<td>  <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="http://en.cppreference.com/w/cpp/iterator/reverse_iterator"><span class="kw660">std::<span class="me2">reverse_iterator</span></span></a><span class="sy1">&lt;</span>iterator<span class="sy1">&gt;</span></span></span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_reverse_iterator&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <code>const_reverse_iterator</code>
+</td>
+<td>  <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="http://en.cppreference.com/w/cpp/iterator/reverse_iterator"><span class="kw660">std::<span class="me2">reverse_iterator</span></span></a><span class="sy1">&lt;</span>const_iterator<span class="sy1">&gt;</span></span></span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_const_reverse_iterator&amp;action=edit">[edit]</a></span>
+</td></tr>
+</tbody></table>
+<h3><span class="editsection">[<a href="https://en.cppreference.com/mwiki/index.php?title=cpp/container/vector&amp;action=edit&amp;section=5" title="Edit section: Member functions">edit</a>]</span> <span class="mw-headline" id="Member_functions">Member functions</span></h3>
+<table class="t-dsc-begin">
+
+<tbody><tr class="t-dsc">
+<td>  <div class="t-dsc-member-div t-dsc-member-nobold-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/vector" title="cpp/container/vector/vector"> <span class="t-lines"><span>(constructor)</span></span></a></div></div>
+</td>
+<td>  constructs the <code>vector</code> <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_constructor&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div t-dsc-member-nobold-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/~vector" title="cpp/container/vector/~vector"> <span class="t-lines"><span>(destructor)</span></span></a></div></div>
+</td>
+<td>  destructs the <code>vector</code> <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_destructor&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/operator%3D" title="cpp/container/vector/operator="> <span class="t-lines"><span>operator=</span></span></a></div></div>
+</td>
+<td>   assigns values to the container  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_operator%3D&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/assign" title="cpp/container/vector/assign"> <span class="t-lines"><span>assign</span></span></a></div></div>
+</td>
+<td>   assigns values to the container  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_assign&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/get_allocator" title="cpp/container/vector/get allocator"> <span class="t-lines"><span>get_allocator</span></span></a></div></div>
+</td>
+<td>   returns the associated allocator  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_get_allocator&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+
+<tr>
+<td colspan="2"> <h5> <span class="mw-headline" id="Element_access">  Element access </span></h5>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/at" title="cpp/container/vector/at"> <span class="t-lines"><span>at</span></span></a></div></div>
+</td>
+<td>   access specified element with bounds checking  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_at&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/operator_at" title="cpp/container/vector/operator at"> <span class="t-lines"><span>operator[]</span></span></a></div></div>
+</td>
+<td>   access  specified element  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_operator_at&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/front" title="cpp/container/vector/front"> <span class="t-lines"><span>front</span></span></a></div></div>
+</td>
+<td>   access the first element  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_front&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/back" title="cpp/container/vector/back"> <span class="t-lines"><span>back</span></span></a></div></div>
+</td>
+<td>   access the last element  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_back&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/data" title="cpp/container/vector/data"> <span class="t-lines"><span>data</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>   direct access to the underlying array  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_data&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+
+<tr>
+<td colspan="2"> <h5> <span class="mw-headline" id="Iterators">  Iterators </span></h5>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/begin" title="cpp/container/vector/begin"> <span class="t-lines"><span>begin</span><span> cbegin</span></span></a></div><div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>   returns an iterator to the beginning  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_begin&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/end" title="cpp/container/vector/end"> <span class="t-lines"><span>end </span><span> cend</span></span></a></div><div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>   returns an iterator to the end  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_end&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/rbegin" title="cpp/container/vector/rbegin"> <span class="t-lines"><span>rbegin</span><span> crbegin</span></span></a></div><div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>   returns a reverse iterator to the beginning  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_rbegin&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/rend" title="cpp/container/vector/rend"> <span class="t-lines"><span>rend</span><span> crend</span></span></a></div><div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>   returns a reverse iterator to the end  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_rend&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+
+<tr>
+<td colspan="2"> <h5> <span class="mw-headline" id="Capacity">  Capacity </span></h5>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/empty" title="cpp/container/vector/empty"> <span class="t-lines"><span>empty</span></span></a></div></div>
+</td>
+<td>   checks whether the container is empty  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_empty&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/size" title="cpp/container/vector/size"> <span class="t-lines"><span>size</span></span></a></div></div>
+</td>
+<td>   returns the number of elements  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_size&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/max_size" title="cpp/container/vector/max size"> <span class="t-lines"><span>max_size</span></span></a></div></div>
+</td>
+<td>   returns the maximum possible number of elements  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_max_size&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/reserve" title="cpp/container/vector/reserve"> <span class="t-lines"><span>reserve</span></span></a></div></div>
+</td>
+<td>   reserves storage <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_reserve&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/capacity" title="cpp/container/vector/capacity"> <span class="t-lines"><span>capacity</span></span></a></div></div>
+</td>
+<td>   returns the number of elements that can be held in currently allocated storage  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_capacity&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/shrink_to_fit" title="cpp/container/vector/shrink to fit"> <span class="t-lines"><span>shrink_to_fit</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>   reduces memory usage by freeing unused memory  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_shrink_to_fit&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+
+<tr>
+<td colspan="2"> <h5> <span class="mw-headline" id="Modifiers">  Modifiers </span></h5>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/clear" title="cpp/container/vector/clear"> <span class="t-lines"><span>clear</span></span></a></div></div>
+</td>
+<td>   clears the contents  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_clear&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/insert" title="cpp/container/vector/insert"> <span class="t-lines"><span>insert</span></span></a></div></div>
+</td>
+<td>   inserts elements  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_insert&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/emplace" title="cpp/container/vector/emplace"> <span class="t-lines"><span>emplace</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>   constructs element in-place  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_emplace&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/erase" title="cpp/container/vector/erase"> <span class="t-lines"><span>erase</span></span></a></div></div>
+</td>
+<td>   erases elements  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_erase&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/push_back" title="cpp/container/vector/push back"> <span class="t-lines"><span>push_back</span></span></a></div></div>
+</td>
+<td>   adds an element to the end <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_push_back&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/emplace_back" title="cpp/container/vector/emplace back"> <span class="t-lines"><span>emplace_back</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>   constructs an element in-place at the end  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_emplace_back&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/pop_back" title="cpp/container/vector/pop back"> <span class="t-lines"><span>pop_back</span></span></a></div></div>
+</td>
+<td>   removes the last element  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_pop_back&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/resize" title="cpp/container/vector/resize"> <span class="t-lines"><span>resize</span></span></a></div></div>
+</td>
+<td>   changes the number of elements stored  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_resize&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/swap" title="cpp/container/vector/swap"> <span class="t-lines"><span>swap</span></span></a></div></div>
+</td>
+<td>   swaps the contents  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_swap&amp;action=edit">[edit]</a></span>
+</td></tr>
+</tbody></table>
+<h3><span class="editsection">[<a href="https://en.cppreference.com/mwiki/index.php?title=cpp/container/vector&amp;action=edit&amp;section=6" title="Edit section: Non-member functions">edit</a>]</span> <span class="mw-headline" id="Non-member_functions">Non-member functions</span></h3>
+<table class="t-dsc-begin">
+
+<tbody><tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/operator_cmp" title="cpp/container/vector/operator cmp"> <span class="t-lines"><span>operator==</span><span>operator!=</span><span>operator&lt;</span><span>operator&lt;=</span><span>operator&gt;</span><span>operator&gt;=</span><span>operator&lt;=&gt;</span></span></a></div><div><span class="t-lines"><span></span><span><span class="t-mark-rev t-until-cxx20">(removed in C++20)</span></span><span><span class="t-mark-rev t-until-cxx20">(removed in C++20)</span></span><span><span class="t-mark-rev t-until-cxx20">(removed in C++20)</span></span><span><span class="t-mark-rev t-until-cxx20">(removed in C++20)</span></span><span><span class="t-mark-rev t-until-cxx20">(removed in C++20)</span></span><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div>
+</td>
+<td>   lexicographically compares the values in the vector  <br> <span class="t-mark">(function template)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_operator_cmp&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/swap2" title="cpp/container/vector/swap2"> <span class="t-lines"><span>std::swap<span class="t-dsc-small">(std::vector)</span></span></span></a></div></div>
+</td>
+<td>   specializes the <span class="t-lc"><a href="https://en.cppreference.com/w/cpp/algorithm/swap" title="cpp/algorithm/swap">std::swap</a></span> algorithm  <br> <span class="t-mark">(function template)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_swap2&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/container/vector/erase2" title="cpp/container/vector/erase2"> <span class="t-lines"><span>erase<span class="t-dsc-small">(std::vector)</span></span><span>erase_if<span class="t-dsc-small">(std::vector)</span></span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div>
+</td>
+<td>   Erases all elements satisfying specific criteria  <br> <span class="t-mark">(function template)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_erase_seq&amp;action=edit">[edit]</a></span>
+</td></tr>
+</tbody></table>
+<h3><span class="editsection">[<a href="https://en.cppreference.com/mwiki/index.php?title=cpp/container/vector&amp;action=edit&amp;section=7" title="Edit section: Deduction guides(since C++17)">edit</a>]</span> <span class="mw-headline" id="Deduction_guides.28since_C.2B.2B17.29"><a href="https://en.cppreference.com/w/cpp/container/vector/deduction_guides" title="cpp/container/vector/deduction guides">Deduction guides</a><span class="t-mark-rev t-since-cxx17">(since C++17)</span></span></h3>
+<h3><span class="editsection">[<a href="https://en.cppreference.com/mwiki/index.php?title=cpp/container/vector&amp;action=edit&amp;section=8" title="Edit section: Example">edit</a>]</span> <span class="mw-headline" id="Example">Example</span></h3>
+<div class="t-example"><div class="t-example-live-link"><div class="coliru-btn coliru-btn-run-init">Run this code</div></div>
+<div dir="ltr" class="mw-geshi t-example-code" style="text-align: left;"><div class="cpp source-cpp"><pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;vector&gt;</span>
+&nbsp;
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="co1">// Create a vector containing integers</span>
+    std<span class="sy4">::</span><span class="me2">vector</span><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span> v <span class="sy1">=</span> <span class="br0">{</span> <span class="nu0">7</span>, <span class="nu0">5</span>, <span class="nu0">16</span>, <span class="nu0">8</span> <span class="br0">}</span><span class="sy4">;</span>
+&nbsp;
+    <span class="co1">// Add two more integers to vector</span>
+    v.<span class="me1">push_back</span><span class="br0">(</span><span class="nu0">25</span><span class="br0">)</span><span class="sy4">;</span>
+    v.<span class="me1">push_back</span><span class="br0">(</span><span class="nu0">13</span><span class="br0">)</span><span class="sy4">;</span>
+&nbsp;
+    <span class="co1">// Print out the vector</span>
+    <a href="http://en.cppreference.com/w/cpp/io/cout"><span class="kw1760">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">"v = { "</span><span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> n <span class="sy4">:</span> v<span class="br0">)</span> <span class="br0">{</span>
+        <a href="http://en.cppreference.com/w/cpp/io/cout"><span class="kw1760">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> n <span class="sy1">&lt;&lt;</span> <span class="st0">", "</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    <a href="http://en.cppreference.com/w/cpp/io/cout"><span class="kw1760">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">"}; <span class="es1">\n</span>"</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div></div>
+<p>Output:
+</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="text source-text"><pre class="de1">v = { 7, 5, 16, 8, 25, 13, };</pre></div></div> 
+</div>
+<h3><span class="editsection">[<a href="https://en.cppreference.com/mwiki/index.php?title=cpp/container/vector&amp;action=edit&amp;section=9" title="Edit section: Defect reports">edit</a>]</span> <span class="mw-headline" id="Defect_reports">Defect reports</span></h3>
+<p>The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
+</p>
+<table class="dsctable" style="font-size:0.8em">
+<tbody><tr>
+<th> DR
+</th>
+<th> Applied to
+</th>
+<th> Behavior as published
+</th>
+<th> Correct behavior
+</th></tr>
+<tr>
+<td> <a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue69">LWG 69</a>
+</td>
+<td> C++98
+</td>
+<td> contiguity of the storage for elements of <code>vector</code> was not required
+</td>
+<td> required
+</td></tr></tbody></table>
+
+<!-- 
+NewPP limit report
+Preprocessor visited node count: 12019/1000000
+Preprocessor generated node count: 19707/1000000
+Post‐expand include size: 344833/2097152 bytes
+Template argument size: 67798/2097152 bytes
+Highest expansion depth: 23/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key mwiki1-mwiki_en_:pcache:idhash:443-0!*!0!!en!*!* and timestamp 20210625201836 -->
+</div>                    <!-- /bodycontent -->
+                                        <!-- printfooter -->
+                    <div class="printfooter">
+                    Retrieved from "<a href="https://en.cppreference.com/mwiki/index.php?title=cpp/container/vector&amp;oldid=128957">https://en.cppreference.com/mwiki/index.php?title=cpp/container/vector&amp;oldid=128957</a>"                    </div>
+                    <!-- /printfooter -->
+                                                            <!-- catlinks -->
+                    <div id="catlinks" class="catlinks catlinks-allhidden"></div>                    <!-- /catlinks -->
+                                                            <div class="visualClear"></div>
+                    <!-- debughtml -->
+                                        <!-- /debughtml -->
+                </div>
+                <!-- /bodyContent -->
+            </div>
+        </div>
+        <!-- /content -->
+        <!-- footer -->
+        <div id="cpp-footer-base" class="noprint">
+            <div id="footer">
+                        <div id="cpp-navigation">
+            <h5>Navigation</h5>
+            <ul>
+<li id="n-Support-us"><a href="http://www.cppreference.com/support" rel="nofollow">Support us</a></li><li id="n-recentchanges"><a href="https://en.cppreference.com/w/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-FAQ"><a href="https://en.cppreference.com/w/Cppreference:FAQ">FAQ</a></li><li id="n-Offline-version"><a href="https://en.cppreference.com/w/Cppreference:Archives">Offline version</a></li>            </ul>
+        </div>
+                        <div id="cpp-toolbox">
+            <h5><span>Toolbox</span><a href="https://en.cppreference.com/w/cpp/container/vector#"></a></h5>
+            <ul>
+<li id="t-whatlinkshere"><a href="https://en.cppreference.com/w/Special:WhatLinksHere/cpp/container/vector" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://en.cppreference.com/w/Special:RecentChangesLinked/cpp/container/vector" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-upload"><a href="http://upload.cppreference.com/w/Special:Upload" title="Upload files [u]" accesskey="u">Upload file</a></li><li id="t-specialpages"><a href="https://en.cppreference.com/w/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="https://en.cppreference.com/mwiki/index.php?title=cpp/container/vector&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://en.cppreference.com/mwiki/index.php?title=cpp/container/vector&amp;oldid=128957" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://en.cppreference.com/mwiki/index.php?title=cpp/container/vector&amp;action=info">Page information</a></li>            </ul>
+        </div>
+                        <div id="cpp-languages">
+            <div><ul><li>In other languages</li></ul></div>
+            <div><ul>
+<li class="interwiki-cs"><a href="http://cs.cppreference.com/w/cpp/container/vector" title="cpp/container/vector" lang="cs" hreflang="cs">Česky</a></li><li class="interwiki-de"><a href="http://de.cppreference.com/w/cpp/container/vector" title="cpp/container/vector" lang="de" hreflang="de">Deutsch</a></li><li class="interwiki-es"><a href="http://es.cppreference.com/w/cpp/container/vector" title="cpp/container/vector" lang="es" hreflang="es">Español</a></li><li class="interwiki-fr"><a href="http://fr.cppreference.com/w/cpp/container/vector" title="cpp/container/vector" lang="fr" hreflang="fr">Français</a></li><li class="interwiki-it"><a href="http://it.cppreference.com/w/cpp/container/vector" title="cpp/container/vector" lang="it" hreflang="it">Italiano</a></li><li class="interwiki-ja"><a href="http://ja.cppreference.com/w/cpp/container/vector" title="cpp/container/vector" lang="ja" hreflang="ja">日本語</a></li><li class="interwiki-ko"><a href="http://ko.cppreference.com/w/cpp/container/vector" title="cpp/container/vector" lang="ko" hreflang="ko">한국어</a></li><li class="interwiki-pl"><a href="http://pl.cppreference.com/w/cpp/container/vector" title="cpp/container/vector" lang="pl" hreflang="pl">Polski</a></li><li class="interwiki-pt"><a href="http://pt.cppreference.com/w/cpp/container/vector" title="cpp/container/vector" lang="pt" hreflang="pt">Português</a></li><li class="interwiki-ru"><a href="http://ru.cppreference.com/w/cpp/container/vector" title="cpp/container/vector" lang="ru" hreflang="ru">Русский</a></li><li class="interwiki-zh"><a href="http://zh.cppreference.com/w/cpp/container/vector" title="cpp/container/vector" lang="zh" hreflang="zh">中文</a></li>            </ul></div>
+        </div>
+            <ul id="footer-info">
+                                    <li id="footer-info-lastmod"> This page was last modified on 25 May 2021, at 20:24.</li>
+                                    <li id="footer-info-viewcount">This page has been accessed 8,938,417 times.</li>
+                            </ul>
+                    <ul id="footer-places">
+                                    <li id="footer-places-privacy"><a href="https://en.cppreference.com/w/Cppreference:Privacy_policy" title="Cppreference:Privacy policy">Privacy policy</a></li>
+                                    <li id="footer-places-about"><a href="https://en.cppreference.com/w/Cppreference:About" title="Cppreference:About">About cppreference.com</a></li>
+                                    <li id="footer-places-disclaimer"><a href="https://en.cppreference.com/w/Cppreference:General_disclaimer" title="Cppreference:General disclaimer">Disclaimers</a></li>
+                            </ul>
+                                    <ul id="footer-icons" class="noprint">
+                                    <li id="footer-poweredbyico">
+                                            <a href="https://www.mediawiki.org/"><img src="./std__vector - cppreference.com_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31"></a>                                            <a href="http://qbnz.com/highlighter/"><img src="./std__vector - cppreference.com_files/powered_by_geshi_88x31.png" alt="Powered by GeSHi" height="31" width="88"></a>                                            <a href="http://www.tigertech.net/referral/cppreference.com"><img src="./std__vector - cppreference.com_files/powered_by_tigertech_88x31.png" alt="Hosted by Tiger Technologies" height="31" width="88"></a>                                        </li>
+                                </ul>
+                        <div style="clear:both">
+            </div>
+            </div>
+        </div>
+        <!-- /footer -->
+        <script>if(window.mw){
+mw.loader.state({"site":"loading","user":"missing","user.groups":"ready"});
+}</script>
+<script src="./std__vector - cppreference.com_files/load(6).php"></script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.postEdit","mediawiki.user","mediawiki.page.ready","mediawiki.searchSuggest","mediawiki.hidpi","ext.gadget.ColiruCompiler","ext.gadget.MathJax"], null, true);
+}</script>
+<script src="./std__vector - cppreference.com_files/load(7).php"></script>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./std__vector - cppreference.com_files/ga.js.download" type="text/javascript"></script>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-2828341-1']);
+_gaq.push(['_setDomainName', 'cppreference.com']);
+_gaq.push(['_trackPageview']);
+</script><!-- Served in 2.375 secs. -->
+	
+<!-- Cached 20210625201836 -->
+
+<div id="mouseposition-extension-element-full-container" style="position: fixed; inset: 0px; pointer-events: none; z-index: 2147483647; font-weight: 400;"><div id="mouseposition-extension-element-rect-display" style="display: none; position: absolute; background: rgba(255, 255, 255, 0.7); outline: black solid 1px; font-size: 12px; z-index: 2147483647; justify-content: center; align-items: center; user-select: none; cursor: default; color: rgb(0, 0, 0); font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; width: 0px; height: 0px;"><pre style="flex: 1 1 0%; text-align: center; background-color: rgba(255, 255, 255, 0.7); color: rgb(0, 0, 0); min-width: 42px; min-height: 12px; transition: all 1s ease 0s;"></pre></div><pre id="mouseposition-extension-element-coordinate-display" style="position: absolute; display: none; background: rgb(255, 255, 255); font-size: 12px; line-height: 14px; border-radius: 3px; border-width: 1px; border-color: rgb(34, 34, 34) black rgb(51, 51, 51); border-style: solid; padding: 3px; z-index: 2147483647; color: rgb(34, 34, 34); user-select: none; cursor: default; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;"></pre></div></body></html>

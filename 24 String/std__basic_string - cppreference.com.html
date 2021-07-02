@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://en.cppreference.com/w/cpp/string/basic_string -->
+<html lang="en" dir="ltr" class="client-js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>std::basic_string - cppreference.com</title>
+
+<meta name="generator" content="MediaWiki 1.21.2">
+<link rel="alternate" type="application/x-wiki" title="Edit" href="https://en.cppreference.com/mwiki/index.php?title=cpp/string/basic_string&amp;action=edit">
+<link rel="edit" title="Edit" href="https://en.cppreference.com/mwiki/index.php?title=cpp/string/basic_string&amp;action=edit">
+<link rel="shortcut icon" href="https://en.cppreference.com/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.cppreference.com/mwiki/opensearch_desc.php" title="cppreference.com (en)">
+<link rel="EditURI" type="application/rsd+xml" href="https://en.cppreference.com/mwiki/api.php?action=rsd">
+<link rel="alternate" type="application/atom+xml" title="cppreference.com Atom feed" href="https://en.cppreference.com/mwiki/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="stylesheet" href="./std__basic_string - cppreference.com_files/load.php">
+<style>
+.t-example-live-link{display:block !important;position:relative;margin-top:1em;padding:0 1em;width:55em}.t-example-live-link > a{display:none}.coliru-btn{background-color:#eeeeee;background-image:linear-gradient(#ffffff,#eeeeee);background-repeat:repeat-x;border:1px solid #cccccc;border-radius:3px;box-shadow:0 1px 0 rgba(255,255,255,0.5);padding:3px;margin:3px;color:#333333;cursor:pointer;display:inline-block;font-size:0.8em;font-weight:bold;line-height:1em}.coliru-btn:hover{background-color:#dddddd;background-image:linear-gradient(#ffffff,#dddddd)}.coliru-btn-disabled{color:#888888}.coliru-btn-disabled:hover{background-color:#eeeeee;background-image:linear-gradient(#ffffff,#eeeeee)}.coliru-powered{font-size:0.8em;position:absolute;bottom:0;right:0}.ace_editor{display:block;position:relative !important;top:0;right:0;bottom:0;left:0;width:100%;height:30em;font-family:DejaVuSansMono,"DejaVu Sans Mono",courier,monospace !important}.t-example-code{margin-top:0 !important}.coliru-output{overflow:auto;max-height:15em}.coliru-output > div{display:table;width:100%}.coliru-output pre{border:none;display:table-row;padding:0;margin:0}.coliru-output-line-shell{background-color:#ffd8d8}.coliru-select-compiler select{background-color:#EEEEEE;background-image:linear-gradient(#FFFFFF,#EEEEEE);background-repeat:repeat-x;border:1px solid #CCCCCC;border-radius:3px 3px 3px 3px;box-shadow:0 1px 0 rgba(255,255,255,0.5);font-size:0.8em;line-height:1em;padding:0;width:12em}
+/* cache key: mwiki1-mwiki_en_:resourceloader:filter:minify-css:7:50a161ae2572e9a968ebbe7279923688 */
+.mw-collapsible-toggle{float:right} li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
+/* cache key: mwiki1-mwiki_en_:resourceloader:filter:minify-css:7:4250852ed2349a0d4d0fc6509a3e7d4c */
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:none;z-index:1099;padding:0;margin:-1px -1px 0 0} html > body .suggestions{margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left}.suggestions-result-current{background-color:#4C59A6;color:white}.suggestions-special .special-label{color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white}.autoellipsis-matched,.highlight{font-weight:bold}
+/* cache key: mwiki1-mwiki_en_:resourceloader:filter:minify-css:7:9780324491b653a3780e2d029bdc140c */</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{text-decoration:none;color:black}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:white}
+/* cache key: mwiki1-mwiki_en_:resourceloader:filter:minify-css:7:52b1797f70c7e4094dfa4191101944e8 */</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="./std__basic_string - cppreference.com_files/load(1).php">
+<style>a:lang(ar),a:lang(ckb),a:lang(fa),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}#toc{display:none}.editsection{display:none}
+/* cache key: mwiki1-mwiki_en_:resourceloader:filter:minify-css:7:472787eddcf4605d11de8c7ef047234f */</style>
+
+<script src="./std__basic_string - cppreference.com_files/load(2).php"></script><script src="./std__basic_string - cppreference.com_files/load(3).php"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"cpp/string/basic_string","wgTitle":"cpp/string/basic string","wgCurRevisionId":128956,"wgArticleId":1389,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Pages with unreviewed LWG DR marker"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"cpp/string/basic_string","wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function(){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":0,"showtoolbar":1,"skin":"cppreference2","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,
+"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"gadget-ColiruCompiler":1,"gadget-MathJax":1});;},{},{});mw.loader.implement("user.tokens",function(){mw.user.tokens.set({"editToken":"+\\","patrolToken":false,"watchToken":false});;},{},{});
+/* cache key: mwiki1-mwiki_en_:resourceloader:filter:minify-js:7:9f05c6caceb9bb1a482b6cebd4c5a330 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax"]);
+}</script><script src="./std__basic_string - cppreference.com_files/load(4).php"></script>
+<style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000dd;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #909090;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #008000;}
+.cpp.source-cpp .nu0 {color: #000080;}
+.cpp.source-cpp .nu6 {color: #000080;}
+.cpp.source-cpp .nu8 {color: #000080;}
+.cpp.source-cpp .nu12 {color: #000080;}
+.cpp.source-cpp .nu16 {color:#000080;}
+.cpp.source-cpp .nu17 {color:#000080;}
+.cpp.source-cpp .nu18 {color:#000080;}
+.cpp.source-cpp .nu19 {color:#000080;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style><!--[if lt IE 7]><style type="text/css">body{behavior:url("/mwiki/skins/cppreference2/csshover.min.htc")}</style><![endif]--><script id="_carbonads_projs" type="text/javascript" src="./std__basic_string - cppreference.com_files/CKYITK7M.json"></script><script async="" src="./std__basic_string - cppreference.com_files/load(5).php"></script><style id="ace_editor.css">.ace_editor {position: relative;overflow: hidden;font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;direction: ltr;text-align: left;}.ace_scroller {position: absolute;overflow: hidden;top: 0;bottom: 0;background-color: inherit;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;cursor: text;}.ace_content {position: absolute;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;min-width: 100%;}.ace_dragging .ace_scroller:before{position: absolute;top: 0;left: 0;right: 0;bottom: 0;content: '';background: rgba(250, 250, 250, 0.01);z-index: 1000;}.ace_dragging.ace_dark .ace_scroller:before{background: rgba(0, 0, 0, 0.01);}.ace_selecting, .ace_selecting * {cursor: text !important;}.ace_gutter {position: absolute;overflow : hidden;width: auto;top: 0;bottom: 0;left: 0;cursor: default;z-index: 4;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;}.ace_gutter-active-line {position: absolute;left: 0;right: 0;}.ace_scroller.ace_scroll-left {box-shadow: 17px 0 16px -16px rgba(0, 0, 0, 0.4) inset;}.ace_gutter-cell {padding-left: 19px;padding-right: 6px;background-repeat: no-repeat;}.ace_gutter-cell.ace_error {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABOFBMVEX/////////QRswFAb/Ui4wFAYwFAYwFAaWGAfDRymzOSH/PxswFAb/SiUwFAYwFAbUPRvjQiDllog5HhHdRybsTi3/Tyv9Tir+Syj/UC3////XurebMBIwFAb/RSHbPx/gUzfdwL3kzMivKBAwFAbbvbnhPx66NhowFAYwFAaZJg8wFAaxKBDZurf/RB6mMxb/SCMwFAYwFAbxQB3+RB4wFAb/Qhy4Oh+4QifbNRcwFAYwFAYwFAb/QRzdNhgwFAYwFAbav7v/Uy7oaE68MBK5LxLewr/r2NXewLswFAaxJw4wFAbkPRy2PyYwFAaxKhLm1tMwFAazPiQwFAaUGAb/QBrfOx3bvrv/VC/maE4wFAbRPBq6MRO8Qynew8Dp2tjfwb0wFAbx6eju5+by6uns4uH9/f36+vr/GkHjAAAAYnRSTlMAGt+64rnWu/bo8eAA4InH3+DwoN7j4eLi4xP99Nfg4+b+/u9B/eDs1MD1mO7+4PHg2MXa347g7vDizMLN4eG+Pv7i5evs/v79yu7S3/DV7/498Yv24eH+4ufQ3Ozu/v7+y13sRqwAAADLSURBVHjaZc/XDsFgGIBhtDrshlitmk2IrbHFqL2pvXf/+78DPokj7+Fz9qpU/9UXJIlhmPaTaQ6QPaz0mm+5gwkgovcV6GZzd5JtCQwgsxoHOvJO15kleRLAnMgHFIESUEPmawB9ngmelTtipwwfASilxOLyiV5UVUyVAfbG0cCPHig+GBkzAENHS0AstVF6bacZIOzgLmxsHbt2OecNgJC83JERmePUYq8ARGkJx6XtFsdddBQgZE2nPR6CICZhawjA4Fb/chv+399kfR+MMMDGOQAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: 2px center;}.ace_gutter-cell.ace_warning {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAmVBMVEX///8AAAD///8AAAAAAABPSzb/5sAAAAB/blH/73z/ulkAAAAAAAD85pkAAAAAAAACAgP/vGz/rkDerGbGrV7/pkQICAf////e0IsAAAD/oED/qTvhrnUAAAD/yHD/njcAAADuv2r/nz//oTj/p064oGf/zHAAAAA9Nir/tFIAAAD/tlTiuWf/tkIAAACynXEAAAAAAAAtIRW7zBpBAAAAM3RSTlMAABR1m7RXO8Ln31Z36zT+neXe5OzooRDfn+TZ4p3h2hTf4t3k3ucyrN1K5+Xaks52Sfs9CXgrAAAAjklEQVR42o3PbQ+CIBQFYEwboPhSYgoYunIqqLn6/z8uYdH8Vmdnu9vz4WwXgN/xTPRD2+sgOcZjsge/whXZgUaYYvT8QnuJaUrjrHUQreGczuEafQCO/SJTufTbroWsPgsllVhq3wJEk2jUSzX3CUEDJC84707djRc5MTAQxoLgupWRwW6UB5fS++NV8AbOZgnsC7BpEAAAAABJRU5ErkJggg==");background-position: 2px center;}.ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAJ0Uk5TAAB2k804AAAAPklEQVQY02NgIB68QuO3tiLznjAwpKTgNyDbMegwisCHZUETUZV0ZqOquBpXj2rtnpSJT1AEnnRmL2OgGgAAIKkRQap2htgAAAAASUVORK5CYII=");background-position: 2px center;}.ace_dark .ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAJFBMVEUAAAChoaGAgIAqKiq+vr6tra1ZWVmUlJSbm5s8PDxubm56enrdgzg3AAAAAXRSTlMAQObYZgAAAClJREFUeNpjYMAPdsMYHegyJZFQBlsUlMFVCWUYKkAZMxZAGdxlDMQBAG+TBP4B6RyJAAAAAElFTkSuQmCC");}.ace_scrollbar {position: absolute;right: 0;bottom: 0;z-index: 6;}.ace_scrollbar-inner {position: absolute;cursor: text;left: 0;top: 0;}.ace_scrollbar-v{overflow-x: hidden;overflow-y: scroll;top: 0;}.ace_scrollbar-h {overflow-x: scroll;overflow-y: hidden;left: 0;}.ace_print-margin {position: absolute;height: 100%;}.ace_text-input {position: absolute;z-index: 0;width: 0.5em;height: 1em;opacity: 0;background: transparent;-moz-appearance: none;appearance: none;border: none;resize: none;outline: none;overflow: hidden;font: inherit;padding: 0 1px;margin: 0 -1px;text-indent: -1em;-ms-user-select: text;-moz-user-select: text;-webkit-user-select: text;user-select: text;white-space: pre!important;}.ace_text-input.ace_composition {background: inherit;color: inherit;z-index: 1000;opacity: 1;text-indent: 0;}.ace_layer {z-index: 1;position: absolute;overflow: hidden;word-wrap: normal;white-space: pre;height: 100%;width: 100%;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;pointer-events: none;}.ace_gutter-layer {position: relative;width: auto;text-align: right;pointer-events: auto;}.ace_text-layer {font: inherit !important;}.ace_cjk {display: inline-block;text-align: center;}.ace_cursor-layer {z-index: 4;}.ace_cursor {z-index: 4;position: absolute;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;border-left: 2px solid;transform: translatez(0);}.ace_slim-cursors .ace_cursor {border-left-width: 1px;}.ace_overwrite-cursors .ace_cursor {border-left-width: 0;border-bottom: 1px solid;}.ace_hidden-cursors .ace_cursor {opacity: 0.2;}.ace_smooth-blinking .ace_cursor {-webkit-transition: opacity 0.18s;transition: opacity 0.18s;}.ace_editor.ace_multiselect .ace_cursor {border-left-width: 1px;}.ace_marker-layer .ace_step, .ace_marker-layer .ace_stack {position: absolute;z-index: 3;}.ace_marker-layer .ace_selection {position: absolute;z-index: 5;}.ace_marker-layer .ace_bracket {position: absolute;z-index: 6;}.ace_marker-layer .ace_active-line {position: absolute;z-index: 2;}.ace_marker-layer .ace_selected-word {position: absolute;z-index: 4;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}.ace_line .ace_fold {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;display: inline-block;height: 11px;margin-top: -2px;vertical-align: middle;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACJJREFUeNpi+P//fxgTAwPDBxDxD078RSX+YeEyDFMCIMAAI3INmXiwf2YAAAAASUVORK5CYII=");background-repeat: no-repeat, repeat-x;background-position: center center, top left;color: transparent;border: 1px solid black;border-radius: 2px;cursor: pointer;pointer-events: auto;}.ace_dark .ace_fold {}.ace_fold:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACBJREFUeNpi+P//fz4TAwPDZxDxD5X4i5fLMEwJgAADAEPVDbjNw87ZAAAAAElFTkSuQmCC");}.ace_tooltip {background-color: #FFF;background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.1));background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1));border: 1px solid gray;border-radius: 1px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);color: black;max-width: 100%;padding: 3px 4px;position: fixed;z-index: 999999;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;cursor: default;white-space: pre;word-wrap: break-word;line-height: normal;font-style: normal;font-weight: normal;letter-spacing: normal;pointer-events: none;}.ace_folding-enabled > .ace_gutter-cell {padding-right: 13px;}.ace_fold-widget {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;margin: 0 -12px 0 1px;display: none;width: 11px;vertical-align: top;background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42mWKsQ0AMAzC8ixLlrzQjzmBiEjp0A6WwBCSPgKAXoLkqSot7nN3yMwR7pZ32NzpKkVoDBUxKAAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: center;border-radius: 3px;border: 1px solid transparent;cursor: pointer;}.ace_folding-enabled .ace_fold-widget {display: inline-block;   }.ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42m3HwQkAMAhD0YzsRchFKI7sAikeWkrxwScEB0nh5e7KTPWimZki4tYfVbX+MNl4pyZXejUO1QAAAABJRU5ErkJggg==");}.ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAGCAYAAAAG5SQMAAAAOUlEQVR42jXKwQkAMAgDwKwqKD4EwQ26sSOkVWjgIIHAzPiCgaqiqnJHZnKICBERHN194O5b9vbLuAVRL+l0YWnZAAAAAElFTkSuQmCCXA==");}.ace_fold-widget:hover {border: 1px solid rgba(0, 0, 0, 0.3);background-color: rgba(255, 255, 255, 0.2);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);}.ace_fold-widget:active {border: 1px solid rgba(0, 0, 0, 0.4);background-color: rgba(0, 0, 0, 0.05);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);}.ace_dark .ace_fold-widget {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHklEQVQIW2P4//8/AzoGEQ7oGCaLLAhWiSwB146BAQCSTPYocqT0AAAAAElFTkSuQmCC");}.ace_dark .ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAH0lEQVQIW2P4//8/AxQ7wNjIAjDMgC4AxjCVKBirIAAF0kz2rlhxpAAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAHElEQVQIW2P4//+/AxAzgDADlOOAznHAKgPWAwARji8UIDTfQQAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget:hover {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);background-color: rgba(255, 255, 255, 0.1);}.ace_dark .ace_fold-widget:active {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);}.ace_fold-widget.ace_invalid {background-color: #FFB4B4;border-color: #DE5555;}.ace_fade-fold-widgets .ace_fold-widget {-webkit-transition: opacity 0.4s ease 0.05s;transition: opacity 0.4s ease 0.05s;opacity: 0;}.ace_fade-fold-widgets:hover .ace_fold-widget {-webkit-transition: opacity 0.05s ease 0.05s;transition: opacity 0.05s ease 0.05s;opacity:1;}.ace_underline {text-decoration: underline;}.ace_bold {font-weight: bold;}.ace_nobold .ace_bold {font-weight: normal;}.ace_italic {font-style: italic;}.ace_error-marker {background-color: rgba(255, 0, 0,0.2);position: absolute;z-index: 9;}.ace_highlight-marker {background-color: rgba(255, 255, 0,0.2);position: absolute;z-index: 8;}.ace_br1 {border-top-left-radius    : 3px;}.ace_br2 {border-top-right-radius   : 3px;}.ace_br3 {border-top-left-radius    : 3px; border-top-right-radius:    3px;}.ace_br4 {border-bottom-right-radius: 3px;}.ace_br5 {border-top-left-radius    : 3px; border-bottom-right-radius: 3px;}.ace_br6 {border-top-right-radius   : 3px; border-bottom-right-radius: 3px;}.ace_br7 {border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px;}.ace_br8 {border-bottom-left-radius : 3px;}.ace_br9 {border-top-left-radius    : 3px; border-bottom-left-radius:  3px;}.ace_br10{border-top-right-radius   : 3px; border-bottom-left-radius:  3px;}.ace_br11{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-left-radius:  3px;}.ace_br12{border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br13{border-top-left-radius    : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br14{border-top-right-radius   : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br15{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px;}
+/*# sourceURL=ace/css/ace_editor.css */</style><style id="ace-tm">.ace-tm .ace_gutter {background: #f0f0f0;color: #333;}.ace-tm .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-tm .ace_fold {background-color: #6B72E6;}.ace-tm {background-color: #FFFFFF;color: black;}.ace-tm .ace_cursor {color: black;}.ace-tm .ace_invisible {color: rgb(191, 191, 191);}.ace-tm .ace_storage,.ace-tm .ace_keyword {color: blue;}.ace-tm .ace_constant {color: rgb(197, 6, 11);}.ace-tm .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-tm .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-tm .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-tm .ace_invalid {background-color: rgba(255, 0, 0, 0.1);color: red;}.ace-tm .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-tm .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-tm .ace_support.ace_type,.ace-tm .ace_support.ace_class {color: rgb(109, 121, 222);}.ace-tm .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-tm .ace_string {color: rgb(3, 106, 7);}.ace-tm .ace_comment {color: rgb(76, 136, 107);}.ace-tm .ace_comment.ace_doc {color: rgb(0, 102, 255);}.ace-tm .ace_comment.ace_doc.ace_tag {color: rgb(128, 159, 191);}.ace-tm .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-tm .ace_variable {color: rgb(49, 132, 149);}.ace-tm .ace_xml-pe {color: rgb(104, 104, 91);}.ace-tm .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-tm .ace_heading {color: rgb(12, 7, 255);}.ace-tm .ace_list {color:rgb(185, 6, 144);}.ace-tm .ace_meta.ace_tag {color:rgb(0, 22, 142);}.ace-tm .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-tm .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-tm.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px white;}.ace-tm .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-tm .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-tm .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-tm .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-tm .ace_gutter-active-line {background-color : #dcdcdc;}.ace-tm .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-tm .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}
+/*# sourceURL=ace/css/ace-tm */</style><style>    .error_widget_wrapper {        background: inherit;        color: inherit;        border:none    }    .error_widget {        border-top: solid 2px;        border-bottom: solid 2px;        margin: 5px 0;        padding: 10px 40px;        white-space: pre-wrap;    }    .error_widget.ace_error, .error_widget_arrow.ace_error{        border-color: #ff5a5a    }    .error_widget.ace_warning, .error_widget_arrow.ace_warning{        border-color: #F1D817    }    .error_widget.ace_info, .error_widget_arrow.ace_info{        border-color: #5a5a5a    }    .error_widget.ace_ok, .error_widget_arrow.ace_ok{        border-color: #5aaa5a    }    .error_widget_arrow {        position: absolute;        border: solid 5px;        border-top-color: transparent!important;        border-right-color: transparent!important;        border-left-color: transparent!important;        top: -5px;    }</style></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_string_basic_string skin-cppreference2 action-view cpp-navbar" data-new-gr-c-s-check-loaded="14.1018.0" data-gr-ext-installed="">
+        <!-- header -->
+        <div id="mw-head" class="noprint">
+            <div id="cpp-head-first-base">
+                <div id="cpp-head-first">
+                    <h5><a href="https://en.cppreference.com/">
+                        cppreference.com                        </a></h5>
+                    <div id="cpp-head-search">
+                        
+<!-- 0 -->
+<div id="p-search">
+<form action="https://duckduckgo.com/" method="get">
+  <input type="hidden" name="sites" value="cppreference.com">
+  <input type="search" name="q">
+  <input type="submit" value="Search">
+</form>
+</div>
+
+<!-- /0 -->
+                    </div>
+                    <div id="cpp-head-personal">
+                        
+<!-- 0 -->
+<div id="p-personal" class="">
+<span id="pt-createaccount"><a href="https://en.cppreference.com/mwiki/index.php?title=Special:UserLogin&amp;returnto=cpp%2Fstring%2Fbasic+string&amp;type=signup">Create account</a></span>	<div class="menu">
+        <ul>
+<li id="pt-login"><a href="https://en.cppreference.com/mwiki/index.php?title=Special:UserLogin&amp;returnto=cpp%2Fstring%2Fbasic+string" title="You are encouraged to log in; however, it is not mandatory [alt-shift-o]" accesskey="o">Log in</a></li>        </ul>
+    </div>
+</div>
+
+<!-- /0 -->
+                    </div>
+
+                </div>
+            </div>
+            <div id="cpp-head-second-base">
+                <div id="cpp-head-second">
+                    <div id="cpp-head-tools-left">
+                        
+<!-- 0 -->
+<div id="p-namespaces" class="vectorTabs">
+	<h5>Namespaces</h5>
+	<ul>
+					<li id="ca-nstab-main" class="selected"><span><a href="https://en.cppreference.com/w/cpp/string/basic_string" title="View the content page [alt-shift-c]" accesskey="c">Page</a></span></li>
+					<li id="ca-talk"><span><a href="https://en.cppreference.com/w/Talk:cpp/string/basic_string" title="Discussion about the content page [alt-shift-t]" accesskey="t">Discussion</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-variants" class="vectorMenu emptyPortlet">
+		<h5><span>Variants</span><a href="https://en.cppreference.com/w/cpp/string/basic_string#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+                    </div>
+                    <div id="cpp-head-tools-right">
+                        
+<!-- 0 -->
+<div id="p-views" class="vectorTabs">
+	<h5>Views</h5>
+	<ul>
+					<li id="ca-view" class="selected"><span><a href="https://en.cppreference.com/w/cpp/string/basic_string">View</a></span></li>
+					<li id="ca-edit"><span><a href="https://en.cppreference.com/mwiki/index.php?title=cpp/string/basic_string&amp;action=edit" title="You can edit this page. Please use the preview button before saving [alt-shift-e]" accesskey="e">Edit</a></span></li>
+					<li id="ca-history" class="collapsible"><span><a href="https://en.cppreference.com/mwiki/index.php?title=cpp/string/basic_string&amp;action=history" title="Past revisions of this page [alt-shift-h]" accesskey="h">History</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-cactions" class="vectorMenu emptyPortlet">
+	<h5><span>Actions</span><a href="https://en.cppreference.com/w/cpp/string/basic_string#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /header -->
+        <!-- content -->
+<style type="text/css">
+#carbonads {
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  text-align: center;
+  left: -170px;
+  max-width: 150px;
+  border-radius: 4px;
+  border: solid 1px hsla(0, 0%, 0%, .1);
+  background-color: hsl(0, 0%, 98%);
+  font-size: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu,
+  Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+#carbonads a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#carbonads a:hover {
+  color: inherit;
+}
+
+#carbonads span {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.carbon-img {
+  display: block;
+  margin-bottom: 8px;
+  max-width: 150px;
+  line-height: 1;
+}
+
+.carbon-img img {
+  display: block;
+  margin: 0 auto;
+  max-width: 150px !important;
+  width: 150px;
+  height: auto;
+}
+
+.carbon-text {
+  display: block;
+  padding: 0 1em 8px;
+}
+
+.carbon-poweredby {
+  display: block;
+  padding: 8px 12px;
+  background: repeating-linear-gradient(-45deg, transparent, transparent 5px, hsla(0, 0%, 0%, .025) 5px, hsla(0, 0%, 0%, .025) 10px) hsla(203, 11%, 95%, .4);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  font-weight: 600;
+  font-size: 9px;
+  line-height: 1;
+}
+html { font-variant-ligatures: no-common-ligatures; }
+</style>
+        <div id="cpp-content-base">
+            <div id="content">
+                <a id="top"></a>
+                <div id="mw-js-message" style="display:none;"></div>
+                                <!-- firstHeading -->
+<script async="" type="text/javascript" src="./std__basic_string - cppreference.com_files/carbon.js.download" id="_carbonads_js"></script><div id="carbonads"><span><span class="carbon-wrap"><a href="https://srv.carbonads.net/ads/click/x/GTND42JLCESDK2JUF6BLYKQNCVBD627ICASDPZ3JCY7DVK7JCEYIT27KC6YICKJLCKSI45QYCTADLK7NCVBDKKQIHEYIKKJWCYBDT23ECTNCYBZ52K?segment=placement:cppreferencecom;" class="carbon-img" target="_blank" rel="noopener sponsored"><img src="./std__basic_string - cppreference.com_files/1622798613-display2.jpg" alt="ads via Carbon" border="0" height="100" width="130" style="max-width: 130px;"></a><a href="https://srv.carbonads.net/ads/click/x/GTND42JLCESDK2JUF6BLYKQNCVBD627ICASDPZ3JCY7DVK7JCEYIT27KC6YICKJLCKSI45QYCTADLK7NCVBDKKQIHEYIKKJWCYBDT23ECTNCYBZ52K?segment=placement:cppreferencecom;" class="carbon-text" target="_blank" rel="noopener sponsored">Join us for AWS ML Fridays. We're putting machine learning in the hands of every developer. Register now!</a></span><a href="http://carbonads.net/?utm_source=cppreferencecom&amp;utm_medium=ad_via_link&amp;utm_campaign=in_unit&amp;utm_term=carbon" class="carbon-poweredby" target="_blank" rel="noopener sponsored">ads via Carbon</a><img src="./std__basic_string - cppreference.com_files/B25580439.304262773" border="0" height="1" width="1" alt="ads via Carbon" style="display: none;"></span></div>
+                <h1 id="firstHeading" class="firstHeading"><span style="font-size:0.7em; line-height:130%">std::</span>basic_string</h1>
+                <!-- /firstHeading -->
+                <!-- bodyContent -->
+                <div id="bodyContent">
+                                        <!-- tagline -->
+                    <div id="siteSub">From cppreference.com</div>
+                    <!-- /tagline -->
+                                        <!-- subtitle -->
+                    <div id="contentSub"><span class="subpages">&lt; <a href="https://en.cppreference.com/w/cpp" title="cpp">cpp</a>‎ | <a href="https://en.cppreference.com/w/cpp/string" title="cpp/string">string</a></span></div>
+                    <!-- /subtitle -->
+                                                            <!-- bodycontent -->
+                    <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="t-navbar" style=""><div class="t-navbar-sep">&nbsp;</div><div class="t-navbar-head"><a href="https://en.cppreference.com/w/cpp" title="cpp"> C++</a><div class="t-navbar-menu"><div><div><table class="t-nv-begin" cellpadding="0" style="line-height:1.1em;">
+<tbody><tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/language" title="cpp/language"> Language</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/header" title="cpp/header"> Standard Library Headers</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/freestanding" title="cpp/freestanding"> Freestanding and hosted implementations</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/named_req" title="cpp/named req"> Named requirements </a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/utility#Language_support" title="cpp/utility"> Language support library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/concepts" title="cpp/concepts"> Concepts library</a> <span class="t-mark-rev t-since-cxx20">(C++20)</span> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/error" title="cpp/error"> Diagnostics library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/utility" title="cpp/utility"> Utilities library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/string" title="cpp/string"> Strings library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/container" title="cpp/container"> Containers library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/iterator" title="cpp/iterator"> Iterators library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/ranges" title="cpp/ranges"> Ranges library</a> <span class="t-mark-rev t-since-cxx20">(C++20)</span> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/algorithm" title="cpp/algorithm"> Algorithms library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/numeric" title="cpp/numeric"> Numerics library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/locale" title="cpp/locale"> Localizations library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/io" title="cpp/io"> Input/output library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/filesystem" title="cpp/filesystem"> Filesystem library</a> <span class="t-mark-rev t-since-cxx17">(C++17)</span> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/regex" title="cpp/regex"> Regular expressions library</a> <span class="t-mark-rev t-since-cxx11">(C++11)</span> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/atomic" title="cpp/atomic"> Atomic operations library</a> <span class="t-mark-rev t-since-cxx11">(C++11)</span> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/thread" title="cpp/thread"> Thread support library</a> <span class="t-mark-rev t-since-cxx11">(C++11)</span> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/experimental" title="cpp/experimental"> Technical Specifications</a> </td></tr>
+</tbody></table></div><div><span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/navbar_content&amp;action=edit">[edit]</a></span></div></div></div></div><div class="t-navbar-sep">&nbsp;</div><div class="t-navbar-head"><a href="https://en.cppreference.com/w/cpp/string" title="cpp/string"> Strings library</a><div class="t-navbar-menu"><div><div><table class="t-nv-begin" cellpadding="0" style="">
+<tbody><tr class="t-nv-h1"><td colspan="5"> Null-terminated strings</td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/string/byte" title="cpp/string/byte"> Byte strings</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/string/multibyte" title="cpp/string/multibyte"> Multibyte strings</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/string/wide" title="cpp/string/wide"> Wide strings</a> </td></tr>
+<tr class="t-nv-h1"><td colspan="5"> Classes</td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><strong class="selflink"><span class="t-lines"><span>basic_string</span></span></strong></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string_view" title="cpp/string/basic string view"><span class="t-lines"><span>basic_string_view</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17">(C++17)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/char_traits" title="cpp/string/char traits"><span class="t-lines"><span>char_traits</span></span></a></div></div></td></tr>
+</tbody></table></div><div><span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/navbar_content&amp;action=edit">[edit]</a></span></div></div></div></div><div class="t-navbar-sep">&nbsp;</div><div class="t-navbar-head"><strong class="selflink"><tt>std::basic_string</tt></strong><div class="t-navbar-menu"><div><div><table class="t-nv-begin" cellpadding="0" style="">
+<tbody><tr class="t-nv-col-table"><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tbody><tr class="t-nv-h1"><td colspan="5"> Member functions</td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/basic_string" title="cpp/string/basic string/basic string"><span class="t-lines"><span>basic_string::basic_string</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/operator%3D" title="cpp/string/basic string/operator="><span class="t-lines"><span>basic_string::operator=</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/assign" title="cpp/string/basic string/assign"><span class="t-lines"><span>basic_string::assign</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/get_allocator" title="cpp/string/basic string/get allocator"><span class="t-lines"><span>basic_string::get_allocator</span></span></a></div></div></td></tr>
+<tr class="t-nv-h2"><td colspan="5"> Element access</td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/at" title="cpp/string/basic string/at"><span class="t-lines"><span>basic_string::at</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/operator_at" title="cpp/string/basic string/operator at"><span class="t-lines"><span>basic_string::operator[]</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/front" title="cpp/string/basic string/front"><span class="t-lines"><span>basic_string::front</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/back" title="cpp/string/basic string/back"><span class="t-lines"><span>basic_string::back</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/data" title="cpp/string/basic string/data"><span class="t-lines"><span>basic_string::data</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/c_str" title="cpp/string/basic string/c str"><span class="t-lines"><span>basic_string::c_str</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/operator_basic_string_view" title="cpp/string/basic string/operator basic string view"><span class="t-lines"><span>basic_string::operator basic_string_view</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17">(C++17)</span>&nbsp;&nbsp;</span></span></div></div></td></tr>
+<tr class="t-nv-h2"><td colspan="5"> Iterators</td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/begin" title="cpp/string/basic string/begin"><span class="t-lines"><span>basic_string::begin</span><span>basic_string::cbegin</span></span></a></div><div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/end" title="cpp/string/basic string/end"><span class="t-lines"><span>basic_string::end</span><span>basic_string::cend</span></span></a></div><div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/rbegin" title="cpp/string/basic string/rbegin"><span class="t-lines"><span>basic_string::rbegin</span><span>basic_string::crbegin</span></span></a></div><div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/rend" title="cpp/string/basic string/rend"><span class="t-lines"><span>basic_string::rend</span><span>basic_string::crend</span></span></a></div><div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv-h2"><td colspan="5"> Capacity</td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/empty" title="cpp/string/basic string/empty"><span class="t-lines"><span>basic_string::empty</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/size" title="cpp/string/basic string/size"><span class="t-lines"><span>basic_string::size</span><span>basic_string::length</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/max_size" title="cpp/string/basic string/max size"><span class="t-lines"><span>basic_string::max_size</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/reserve" title="cpp/string/basic string/reserve"><span class="t-lines"><span>basic_string::reserve</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/capacity" title="cpp/string/basic string/capacity"><span class="t-lines"><span>basic_string::capacity</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/shrink_to_fit" title="cpp/string/basic string/shrink to fit"><span class="t-lines"><span>basic_string::shrink_to_fit</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+</tbody></table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tbody><tr class="t-nv-h2"><td colspan="5"> Operations</td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/clear" title="cpp/string/basic string/clear"><span class="t-lines"><span>basic_string::clear</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/insert" title="cpp/string/basic string/insert"><span class="t-lines"><span>basic_string::insert</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/erase" title="cpp/string/basic string/erase"><span class="t-lines"><span>basic_string::erase</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/push_back" title="cpp/string/basic string/push back"><span class="t-lines"><span>basic_string::push_back</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/pop_back" title="cpp/string/basic string/pop back"><span class="t-lines"><span>basic_string::pop_back</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/append" title="cpp/string/basic string/append"><span class="t-lines"><span>basic_string::append</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/operator%2B%3D" title="cpp/string/basic string/operator+="><span class="t-lines"><span>basic_string::operator+=</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/compare" title="cpp/string/basic string/compare"><span class="t-lines"><span>basic_string::compare</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/starts_with" title="cpp/string/basic string/starts with"><span class="t-lines"><span>basic_string::starts_with</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20">(C++20)</span>&nbsp;&nbsp;</span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/ends_with" title="cpp/string/basic string/ends with"><span class="t-lines"><span>basic_string::ends_with</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/contains" title="cpp/string/basic string/contains"><span class="t-lines"><span>basic_string::contains</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23">(C++23)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/replace" title="cpp/string/basic string/replace"><span class="t-lines"><span>basic_string::replace</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/substr" title="cpp/string/basic string/substr"><span class="t-lines"><span>basic_string::substr</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/copy" title="cpp/string/basic string/copy"><span class="t-lines"><span>basic_string::copy</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/resize" title="cpp/string/basic string/resize"><span class="t-lines"><span>basic_string::resize</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/swap" title="cpp/string/basic string/swap"><span class="t-lines"><span>basic_string::swap</span></span></a></div></div></td></tr>
+<tr class="t-nv-h2"><td colspan="5"> Search</td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/find" title="cpp/string/basic string/find"><span class="t-lines"><span>basic_string::find</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/rfind" title="cpp/string/basic string/rfind"><span class="t-lines"><span>basic_string::rfind</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/find_first_of" title="cpp/string/basic string/find first of"><span class="t-lines"><span>basic_string::find_first_of</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/find_first_not_of" title="cpp/string/basic string/find first not of"><span class="t-lines"><span>basic_string::find_first_not_of</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/find_last_of" title="cpp/string/basic string/find last of"><span class="t-lines"><span>basic_string::find_last_of</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/find_last_not_of" title="cpp/string/basic string/find last not of"><span class="t-lines"><span>basic_string::find_last_not_of</span></span></a></div></div></td></tr>
+<tr class="t-nv-h1"><td colspan="5"> Constants</td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/npos" title="cpp/string/basic string/npos"><span class="t-lines"><span>basic_string::npos</span></span></a></div></div></td></tr>
+</tbody></table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tbody><tr class="t-nv-h1"><td colspan="5"> Non-member functions</td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/operator%2B" title="cpp/string/basic string/operator+"><span class="t-lines"><span>operator+</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/swap2" title="cpp/string/basic string/swap2"><span class="t-lines"><span>swap<span class="t-dsc-small">(std::basic_string)</span></span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/operator%22%22s" title="cpp/string/basic string/operator&quot;&quot;s"><span class="t-lines"><span>operator""s</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx14">(C++14)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/erase2" title="cpp/string/basic string/erase2"><span class="t-lines"><span>erase<span class="t-dsc-small">(std::basic_string)</span></span><span>erase_if<span class="t-dsc-small">(std::basic_string)</span></span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div></td></tr>
+<tr class="t-nv-h2"><td colspan="5"> I/O</td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/operator_ltltgtgt" title="cpp/string/basic string/operator ltltgtgt"><span class="t-lines"><span>operator&lt;&lt;</span><span>operator&gt;&gt;</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/getline" title="cpp/string/basic string/getline"><span class="t-lines"><span>getline</span></span></a></div></div></td></tr>
+<tr class="t-nv-h2"><td colspan="5"> Comparison</td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/operator_cmp" title="cpp/string/basic string/operator cmp"><span class="t-lines"><span>operator==</span><span>operator!=</span><span>operator&lt;</span><span>operator&gt;</span><span>operator&lt;=</span><span>operator&gt;=</span><span>operator&lt;=&gt;</span></span></a></div><div><span class="t-lines"><span></span><span><span class="t-mark-rev t-until-cxx20">(until C++20)</span></span><span><span class="t-mark-rev t-until-cxx20">(until C++20)</span></span><span><span class="t-mark-rev t-until-cxx20">(until C++20)</span></span><span><span class="t-mark-rev t-until-cxx20">(until C++20)</span></span><span><span class="t-mark-rev t-until-cxx20">(until C++20)</span></span><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div></td></tr>
+<tr class="t-nv-h2"><td colspan="5"> Numeric conversion <span class="t-mark-rev t-since-cxx11">(C++11)</span></td></tr>
+<tr class="t-nv-col-table"><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tbody><tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/stol" title="cpp/string/basic string/stol"><span class="t-lines"><span>stoi</span><span>stol</span><span>stoll</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/stoul" title="cpp/string/basic string/stoul"><span class="t-lines"><span>stoul</span><span>stoull</span></span></a></div></div></td></tr>
+</tbody></table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tbody><tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/stof" title="cpp/string/basic string/stof"><span class="t-lines"><span>stof</span><span>stod</span><span>stold</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/to_string" title="cpp/string/basic string/to string"><span class="t-lines"><span>to_string</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/to_wstring" title="cpp/string/basic string/to wstring"><span class="t-lines"><span>to_wstring</span></span></a></div></div></td></tr>
+</tbody></table></div></td></tr>
+<tr class="t-nv-h1"><td colspan="5"> Helper classes</td></tr>
+<tr class="t-nv-col-table"><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tbody><tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/hash" title="cpp/string/basic string/hash"><span class="t-lines"><span>hash<span class="t-dsc-small">&lt;std::string&gt;</span></span><span>hash<span class="t-dsc-small">&lt;std::wstring&gt;</span></span><span>hash<span class="t-dsc-small">&lt;std::u32string&gt;</span></span><span>hash<span class="t-dsc-small">&lt;std::u16string&gt;</span></span><span>hash<span class="t-dsc-small">&lt;std::u8string&gt;</span></span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span>&nbsp;&nbsp;</span><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div></td></tr>
+</tbody></table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tbody><tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/hash" title="cpp/string/basic string/hash"><span class="t-lines"><span>hash<span class="t-dsc-small">&lt;std::pmr::string&gt;</span></span><span>hash<span class="t-dsc-small">&lt;std::pmr::wstring&gt;</span></span><span>hash<span class="t-dsc-small">&lt;std::pmr::u32string&gt;</span></span><span>hash<span class="t-dsc-small">&lt;std::pmr::u16string&gt;</span></span><span>hash<span class="t-dsc-small">&lt;std::pmr::u8string&gt;</span></span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17">(C++17)</span></span><span><span class="t-mark-rev t-since-cxx17">(C++17)</span></span><span><span class="t-mark-rev t-since-cxx17">(C++17)</span></span><span><span class="t-mark-rev t-since-cxx17">(C++17)</span></span><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div></td></tr>
+</tbody></table></div></td></tr>
+<tr class="t-nv-h1"><td colspan="5"> <a href="https://en.cppreference.com/w/cpp/string/basic_string/deduction_guides" title="cpp/string/basic string/deduction guides">Deduction guides</a> <span class="t-mark-rev t-since-cxx17">(C++17)</span></td></tr>
+</tbody></table></div></td></tr>
+</tbody></table></div><div><span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/navbar_content&amp;action=edit">[edit]</a></span></div></div></div></div><div class="t-navbar-sep">&nbsp;</div></div>
+<table class="t-dcl-begin"><tbody>
+<tr class="t-dsc-header">
+<td> <div>Defined in header <code><a href="https://en.cppreference.com/w/cpp/header/string" title="cpp/header/string">&lt;string&gt;</a></code>
+ </div></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td> <div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <br>
+<p>&nbsp; &nbsp; <span class="kw1">class</span> CharT, <br>
+&nbsp; &nbsp; <span class="kw1">class</span> Traits <span class="sy1">=</span> <a href="http://en.cppreference.com/w/cpp/string/char_traits"><span class="kw1261">std::<span class="me2">char_traits</span></span></a><span class="sy1">&lt;</span>CharT<span class="sy1">&gt;</span>, <br>
+&nbsp; &nbsp; <span class="kw1">class</span> Allocator <span class="sy1">=</span> <a href="http://en.cppreference.com/w/cpp/memory/allocator"><span class="kw701">std::<span class="me2">allocator</span></span></a><span class="sy1">&lt;</span>CharT<span class="sy1">&gt;</span><br>
+</p>
+<span class="sy1">&gt;</span> <span class="kw1">class</span> basic_string<span class="sy4">;</span></span></div></td>
+<td> (1) </td>
+<td class="t-dcl-nopad">  </td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td> <div><span class="mw-geshi cpp source-cpp"><span class="kw1">namespace</span> pmr <span class="br0">{</span><br>
+<p>&nbsp; &nbsp; <span class="kw1">template</span> <span class="sy1">&lt;</span><span class="kw1">class</span> CharT, <span class="kw1">class</span> Traits <span class="sy1">=</span> <a href="http://en.cppreference.com/w/cpp/string/char_traits"><span class="kw1261">std::<span class="me2">char_traits</span></span></a><span class="sy1">&lt;</span>CharT<span class="sy1">&gt;&gt;</span><br>
+&nbsp; &nbsp; <span class="kw1">using</span> basic_string <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">basic_string</span><span class="sy1">&lt;</span> CharT, Traits,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="http://en.cppreference.com/w/cpp/memory/polymorphic_allocator"><span class="kw3313">std::<span class="me2">polymorphic_allocator</span></span></a><span class="sy1">&lt;</span>CharT<span class="sy1">&gt;</span> <span class="sy1">&gt;</span><span class="sy4">;</span><br>
+</p>
+<span class="br0">}</span></span></div></td>
+<td> (2) </td>
+<td> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> </td>
+</tr>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+</tbody></table>
+<p>The class template <code>basic_string</code> stores and manipulates sequences of <a href="https://en.cppreference.com/w/cpp/language/types#Character_types" title="cpp/language/types"><tt><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">char</span></span></span></tt></a>-like objects, which are non-array objects of <a href="https://en.cppreference.com/w/cpp/named_req/TrivialType" title="cpp/named req/TrivialType">trivial</a> <a href="https://en.cppreference.com/w/cpp/named_req/StandardLayoutType" title="cpp/named req/StandardLayoutType">standard-layout</a> type. The class is dependent neither on the character type nor on the nature of operations on that type. The definitions of the operations are supplied via the <code>Traits</code> template parameter - a specialization of <span class="t-lc"><a href="https://en.cppreference.com/w/cpp/string/char_traits" title="cpp/string/char traits">std::char_traits</a></span> or a compatible traits class. <code>Traits::char_type</code> and <code>CharT</code> must name the same type; otherwise the program is ill-formed. 
+</p><p>The elements of a <code>basic_string</code> are stored contiguously, that is, for a <code>basic_string</code> <code>s</code>, <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy3">&amp;</span><span class="sy2">*</span><span class="br0">(</span>s.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> n<span class="br0">)</span> <span class="sy1">==</span> <span class="sy3">&amp;</span><span class="sy2">*</span>s.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> n</span></span> for any n in <code>[0, s.size())</code>, or, equivalently, a pointer to <code>s[0]</code> can be passed to functions that expect a pointer to the first element of a <span class="t-rev-inl t-since-cxx11"><span>null-terminated </span> <span><span class="t-mark-rev t-since-cxx11">(since C++11)</span></span></span><code>CharT[]</code> array.
+</p><p><code>std::basic_string</code> satisfies the requirements of <a href="https://en.cppreference.com/w/cpp/named_req/AllocatorAwareContainer" title="cpp/named req/AllocatorAwareContainer"><span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">AllocatorAwareContainer</span></a>, <a href="https://en.cppreference.com/w/cpp/named_req/SequenceContainer" title="cpp/named req/SequenceContainer"><span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">SequenceContainer</span></a> <span class="t-rev-inl t-since-cxx17"><span>and <a href="https://en.cppreference.com/w/cpp/named_req/ContiguousContainer" title="cpp/named req/ContiguousContainer"><span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">ContiguousContainer</span></a></span> <span><span class="t-mark-rev t-since-cxx17">(since C++17)</span></span></span>
+</p>
+ <table class="t-rev-begin">
+<tbody><tr class="t-rev t-since-cxx20"><td>
+<p>Member functions of <code>std::basic_string</code> are <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span></span></span>: it is possible to create and use <code>std::string</code> objects in the evaluation of a constant expression.
+</p><p>However, <code>std::string</code> objects generally cannot be <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span></span></span>, because any dynamically allocated storage must be released in the same evaluation of constant expression.
+</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx20">(since C++20)</span></td></tr>
+</tbody></table>
+<p>Several typedefs for common character types are provided:
+</p>
+<table class="t-dsc-begin">
+
+<tbody><tr class="t-dsc-header">
+<td colspan="2"> <div>Defined in header <code><a href="https://en.cppreference.com/w/cpp/header/string" title="cpp/header/string">&lt;string&gt;</a></code> </div>
+</td></tr>
+
+<tr class="t-dsc-hitem">
+<td>  Type
+</td>
+<td>  Definition
+</td></tr>
+
+
+<tr class="t-dsc">
+<td>  <span class="t-lc"><strong class="selflink">std::string</strong></span>
+</td>
+<td>  <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">basic_string</span><span class="sy1">&lt;</span><span class="kw4">char</span><span class="sy1">&gt;</span></span></span>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td>  <span class="t-lc"><strong class="selflink">std::wstring</strong></span>
+</td>
+<td>  <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">basic_string</span><span class="sy1">&lt;</span><span class="kw4">wchar_t</span><span class="sy1">&gt;</span></span></span>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td>  <span class="t-lc"><strong class="selflink">std::u8string</strong></span> <span class="t-mark-rev t-since-cxx20">(C++20)</span>
+</td>
+<td>  <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">basic_string</span><span class="sy1">&lt;</span>char8_t<span class="sy1">&gt;</span></span></span>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td>  <span class="t-lc"><strong class="selflink">std::u16string</strong></span> <span class="t-mark-rev t-since-cxx11">(C++11)</span>
+</td>
+<td>  <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">basic_string</span><span class="sy1">&lt;</span><span class="kw4">char16_t</span><span class="sy1">&gt;</span></span></span>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td>  <span class="t-lc"><strong class="selflink">std::u32string</strong></span> <span class="t-mark-rev t-since-cxx11">(C++11)</span>
+</td>
+<td>  <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">basic_string</span><span class="sy1">&lt;</span><span class="kw4">char32_t</span><span class="sy1">&gt;</span></span></span>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td>  <span class="t-lc"><strong class="selflink">std::pmr::string</strong></span> <span class="t-mark-rev t-since-cxx17">(C++17)</span>
+</td>
+<td>  <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">pmr</span><span class="sy4">::</span><span class="me2">basic_string</span><span class="sy1">&lt;</span><span class="kw4">char</span><span class="sy1">&gt;</span></span></span>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td>  <span class="t-lc"><strong class="selflink">std::pmr::wstring</strong></span> <span class="t-mark-rev t-since-cxx17">(C++17)</span>
+</td>
+<td>  <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">pmr</span><span class="sy4">::</span><span class="me2">basic_string</span><span class="sy1">&lt;</span><span class="kw4">wchar_t</span><span class="sy1">&gt;</span></span></span>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td>  <span class="t-lc"><strong class="selflink">std::pmr::u8string</strong></span> <span class="t-mark-rev t-since-cxx20">(C++20)</span>
+</td>
+<td>  <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">pmr</span><span class="sy4">::</span><span class="me2">basic_string</span><span class="sy1">&lt;</span>char8_t<span class="sy1">&gt;</span></span></span>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td>  <span class="t-lc"><strong class="selflink">std::pmr::u16string</strong></span> <span class="t-mark-rev t-since-cxx17">(C++17)</span>
+</td>
+<td>  <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">pmr</span><span class="sy4">::</span><span class="me2">basic_string</span><span class="sy1">&lt;</span><span class="kw4">char16_t</span><span class="sy1">&gt;</span></span></span>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td>  <span class="t-lc"><strong class="selflink">std::pmr::u32string</strong></span> <span class="t-mark-rev t-since-cxx17">(C++17)</span>
+</td>
+<td>  <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">pmr</span><span class="sy4">::</span><span class="me2">basic_string</span><span class="sy1">&lt;</span><span class="kw4">char32_t</span><span class="sy1">&gt;</span></span></span>
+</td></tr>
+
+</tbody></table>
+<table id="toc" class="toc"><tbody><tr><td><div id="toctitle"><h2>Contents</h2><span class="toctoggle">&nbsp;[<a href="https://en.cppreference.com/w/cpp/string/basic_string#" class="internal" id="togglelink">hide</a>]&nbsp;</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="https://en.cppreference.com/w/cpp/string/basic_string#Template_parameters"><span class="tocnumber">1</span> <span class="toctext">Template parameters</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="https://en.cppreference.com/w/cpp/string/basic_string#Member_types"><span class="tocnumber">2</span> <span class="toctext">Member types</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="https://en.cppreference.com/w/cpp/string/basic_string#Member_functions"><span class="tocnumber">3</span> <span class="toctext">Member functions</span></a>
+<ul>
+<li class="toclevel-2"><a href="https://en.cppreference.com/w/cpp/string/basic_string#Element_access"><span class="tocnumber">3.1</span> <span class="toctext">Element access</span></a></li>
+<li class="toclevel-2"><a href="https://en.cppreference.com/w/cpp/string/basic_string#Iterators"><span class="tocnumber">3.2</span> <span class="toctext">Iterators</span></a></li>
+<li class="toclevel-2"><a href="https://en.cppreference.com/w/cpp/string/basic_string#Capacity"><span class="tocnumber">3.3</span> <span class="toctext">Capacity</span></a></li>
+<li class="toclevel-2"><a href="https://en.cppreference.com/w/cpp/string/basic_string#Operations"><span class="tocnumber">3.4</span> <span class="toctext">Operations</span></a></li>
+<li class="toclevel-2"><a href="https://en.cppreference.com/w/cpp/string/basic_string#Search"><span class="tocnumber">3.5</span> <span class="toctext">Search</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="https://en.cppreference.com/w/cpp/string/basic_string#Constants"><span class="tocnumber">4</span> <span class="toctext">Constants</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="https://en.cppreference.com/w/cpp/string/basic_string#Non-member_functions"><span class="tocnumber">5</span> <span class="toctext">Non-member functions</span></a>
+<ul>
+<li class="toclevel-2"><a href="https://en.cppreference.com/w/cpp/string/basic_string#Input.2Foutput"><span class="tocnumber">5.1</span> <span class="toctext">Input/output</span></a></li>
+<li class="toclevel-2"><a href="https://en.cppreference.com/w/cpp/string/basic_string#Numeric_conversions"><span class="tocnumber">5.2</span> <span class="toctext">Numeric conversions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="https://en.cppreference.com/w/cpp/string/basic_string#Literals"><span class="tocnumber">6</span> <span class="toctext">Literals</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="https://en.cppreference.com/w/cpp/string/basic_string#Helper_classes"><span class="tocnumber">7</span> <span class="toctext">Helper classes</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="https://en.cppreference.com/w/cpp/string/basic_string#Deduction_guides_.28since_C.2B.2B17.29"><span class="tocnumber">8</span> <span class="toctext">Deduction guides <span>(since C++17)</span></span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="https://en.cppreference.com/w/cpp/string/basic_string#Example"><span class="tocnumber">9</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="https://en.cppreference.com/w/cpp/string/basic_string#See_also"><span class="tocnumber">10</span> <span class="toctext">See also</span></a></li>
+</ul>
+</td></tr></tbody></table>
+<h3><span class="editsection">[<a href="https://en.cppreference.com/mwiki/index.php?title=cpp/string/basic_string&amp;action=edit&amp;section=1" title="Edit section: Template parameters">edit</a>]</span> <span class="mw-headline" id="Template_parameters">Template parameters</span></h3>
+<table class="t-par-begin">
+
+
+<tbody><tr class="t-par">
+<td>  CharT
+</td>
+<td> -
+</td>
+<td>  character type
+</td></tr>
+<tr class="t-par">
+<td>  Traits
+</td>
+<td> -
+</td>
+<td>  traits class specifying the operations on the character type
+</td></tr>
+<tr class="t-par">
+<td>  Allocator
+</td>
+<td> -
+</td>
+<td>  <a href="https://en.cppreference.com/w/cpp/named_req/Allocator" title="cpp/named req/Allocator"><span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">Allocator</span></a> type used to allocate internal storage
+</td></tr></tbody></table>
+<h3><span class="editsection">[<a href="https://en.cppreference.com/mwiki/index.php?title=cpp/string/basic_string&amp;action=edit&amp;section=2" title="Edit section: Member types">edit</a>]</span> <span class="mw-headline" id="Member_types">Member types</span></h3>
+<table class="t-dsc-begin">
+
+<tbody><tr class="t-dsc-hitem">
+<td>  Member type
+</td>
+<td>  Definition
+</td></tr>
+
+
+<tr class="t-dsc">
+<td>  <code>traits_type</code>
+</td>
+<td>  <code>Traits</code>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td>  <code>value_type</code>
+</td>
+<td>  <code>CharT</code>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td>  <code>allocator_type</code>
+</td>
+<td>  <code>Allocator</code> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_allocator_type&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <code>size_type</code>
+</td>
+<td>   <table class="t-rev-begin t-rev-begin-noborder"><tbody><tr class="t-rev t-until-cxx11"><td><code>Allocator::size_type</code></td>
+<td><span class="t-mark-rev t-until-cxx11">(until C++11)</span></td></tr><tr class="t-rev t-since-cxx11"><td><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="http://en.cppreference.com/w/cpp/memory/allocator_traits"><span class="kw702">std::<span class="me2">allocator_traits</span></span></a><span class="sy1">&lt;</span>Allocator<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">size_type</span></span></span></td>
+<td><span class="t-mark-rev t-since-cxx11">(since C++11)</span></td></tr></tbody></table> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_size_type&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <code>difference_type</code>
+</td>
+<td>   <table class="t-rev-begin t-rev-begin-noborder"><tbody><tr class="t-rev t-until-cxx11"><td><code>Allocator::difference_type</code></td>
+<td><span class="t-mark-rev t-until-cxx11">(until C++11)</span></td></tr><tr class="t-rev t-since-cxx11"><td><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="http://en.cppreference.com/w/cpp/memory/allocator_traits"><span class="kw702">std::<span class="me2">allocator_traits</span></span></a><span class="sy1">&lt;</span>Allocator<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">difference_type</span></span></span></td>
+<td><span class="t-mark-rev t-since-cxx11">(since C++11)</span></td></tr></tbody></table> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_difference_type&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <code>reference</code>
+</td>
+<td>  <span class="t-c"><span class="mw-geshi cpp source-cpp">value_type<span class="sy3">&amp;</span></span></span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_reference&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <code>const_reference</code>
+</td>
+<td>  <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">const</span> value_type<span class="sy3">&amp;</span></span></span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_const_reference&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <code>pointer</code>
+</td>
+<td>   <table class="t-rev-begin t-rev-begin-noborder"><tbody><tr class="t-rev t-until-cxx11"><td><code>Allocator::pointer</code></td>
+<td><span class="t-mark-rev t-until-cxx11">(until C++11)</span></td></tr><tr class="t-rev t-since-cxx11"><td><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="http://en.cppreference.com/w/cpp/memory/allocator_traits"><span class="kw702">std::<span class="me2">allocator_traits</span></span></a><span class="sy1">&lt;</span>Allocator<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">pointer</span></span></span></td>
+<td><span class="t-mark-rev t-since-cxx11">(since C++11)</span></td></tr></tbody></table> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_pointer&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <code>const_pointer</code>
+</td>
+<td>   <table class="t-rev-begin t-rev-begin-noborder"><tbody><tr class="t-rev t-until-cxx11"><td><code>Allocator::const_pointer</code></td>
+<td><span class="t-mark-rev t-until-cxx11">(until C++11)</span></td></tr><tr class="t-rev t-since-cxx11"><td><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="http://en.cppreference.com/w/cpp/memory/allocator_traits"><span class="kw702">std::<span class="me2">allocator_traits</span></span></a><span class="sy1">&lt;</span>Allocator<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">const_pointer</span></span></span></td>
+<td><span class="t-mark-rev t-since-cxx11">(since C++11)</span></td></tr></tbody></table> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_const_pointer&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <code>iterator</code>
+</td>
+<td>  <a href="https://en.cppreference.com/w/cpp/named_req/RandomAccessIterator" title="cpp/named req/RandomAccessIterator"><span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">LegacyRandomAccessIterator</span></a> to <code>value_type</code> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_iterator&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <code>const_iterator</code>
+</td>
+<td>  <a href="https://en.cppreference.com/w/cpp/named_req/RandomAccessIterator" title="cpp/named req/RandomAccessIterator"><span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">LegacyRandomAccessIterator</span></a> to <code>const value_type</code> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_const_iterator&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <code>reverse_iterator</code>
+</td>
+<td>  <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="http://en.cppreference.com/w/cpp/iterator/reverse_iterator"><span class="kw660">std::<span class="me2">reverse_iterator</span></span></a><span class="sy1">&lt;</span>iterator<span class="sy1">&gt;</span></span></span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_reverse_iterator&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <code>const_reverse_iterator</code>
+</td>
+<td>  <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="http://en.cppreference.com/w/cpp/iterator/reverse_iterator"><span class="kw660">std::<span class="me2">reverse_iterator</span></span></a><span class="sy1">&lt;</span>const_iterator<span class="sy1">&gt;</span></span></span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_const_reverse_iterator&amp;action=edit">[edit]</a></span>
+</td></tr>
+</tbody></table>
+<h3><span class="editsection">[<a href="https://en.cppreference.com/mwiki/index.php?title=cpp/string/basic_string&amp;action=edit&amp;section=3" title="Edit section: Member functions">edit</a>]</span> <span class="mw-headline" id="Member_functions">Member functions</span></h3>
+<table class="t-dsc-begin">
+
+<tbody><tr class="t-dsc">
+<td>  <div class="t-dsc-member-div t-dsc-member-nobold-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/basic_string" title="cpp/string/basic string/basic string"> <span class="t-lines"><span>(constructor)</span></span></a></div></div>
+</td>
+<td>  constructs a <code>basic_string</code> <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_constructor&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div t-dsc-member-nobold-div"><div><span class="t-lines"><span>(destructor)</span></span></div></div>
+</td>
+<td>  destroys the string, deallocating internal storage if used <br> <span class="t-mark">(public member function)</span>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/operator%3D" title="cpp/string/basic string/operator="> <span class="t-lines"><span>operator=</span></span></a></div></div>
+</td>
+<td>   assigns values to the string  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_operator%3D&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/assign" title="cpp/string/basic string/assign"> <span class="t-lines"><span>assign</span></span></a></div></div>
+</td>
+<td>    assign characters to a string <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_assign&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/get_allocator" title="cpp/string/basic string/get allocator"> <span class="t-lines"><span>get_allocator</span></span></a></div></div>
+</td>
+<td>   returns the associated allocator  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_get_allocator&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+
+<tr>
+<td colspan="2"> <h5> <span class="mw-headline" id="Element_access">  Element access </span></h5>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/at" title="cpp/string/basic string/at"> <span class="t-lines"><span>at</span></span></a></div></div>
+</td>
+<td>    accesses the specified character with bounds checking <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_at&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/operator_at" title="cpp/string/basic string/operator at"> <span class="t-lines"><span>operator[]</span></span></a></div></div>
+</td>
+<td>   accesses the specified character <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_operator_at&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/front" title="cpp/string/basic string/front"> <span class="t-lines"><span>front</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>   accesses the first character <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_front&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/back" title="cpp/string/basic string/back"> <span class="t-lines"><span>back</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>   accesses the last character <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_back&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/data" title="cpp/string/basic string/data"> <span class="t-lines"><span>data</span></span></a></div></div>
+</td>
+<td>   returns a pointer to the first character of a string <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_data&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/c_str" title="cpp/string/basic string/c str"> <span class="t-lines"><span>c_str</span></span></a></div></div>
+</td>
+<td>   returns a non-modifiable standard C character array version of the string <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_c_str&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/operator_basic_string_view" title="cpp/string/basic string/operator basic string view"> <span class="t-lines"><span>operator basic_string_view</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17">(C++17)</span></span></span></div></div>
+</td>
+<td>   returns a non-modifiable string_view  into the entire string <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_operator_string_view&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+
+<tr>
+<td colspan="2"> <h5> <span class="mw-headline" id="Iterators">  Iterators </span></h5>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/begin" title="cpp/string/basic string/begin"> <span class="t-lines"><span>begin</span><span>cbegin</span></span></a></div><div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>   returns an iterator to the beginning  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_begin&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/end" title="cpp/string/basic string/end"> <span class="t-lines"><span>end </span><span>cend</span></span></a></div><div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>   returns an iterator to the end  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_end&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/rbegin" title="cpp/string/basic string/rbegin"> <span class="t-lines"><span>rbegin</span><span> crbegin</span></span></a></div><div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>   returns a reverse iterator to the beginning  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_rbegin&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/rend" title="cpp/string/basic string/rend"> <span class="t-lines"><span>rend</span><span> crend</span></span></a></div><div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>   returns a reverse iterator to the end  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_rend&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+
+<tr>
+<td colspan="2"> <h5> <span class="mw-headline" id="Capacity">  Capacity </span></h5>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/empty" title="cpp/string/basic string/empty"> <span class="t-lines"><span>empty</span></span></a></div></div>
+</td>
+<td>   checks whether the string is empty  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_empty&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/size" title="cpp/string/basic string/size"> <span class="t-lines"><span>size</span><span>length</span></span></a></div></div>
+</td>
+<td>   returns the number of characters  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_size&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/max_size" title="cpp/string/basic string/max size"> <span class="t-lines"><span>max_size</span></span></a></div></div>
+</td>
+<td>   returns the maximum number of characters  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_max_size&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/reserve" title="cpp/string/basic string/reserve"> <span class="t-lines"><span>reserve</span></span></a></div></div>
+</td>
+<td>   reserves storage  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_reserve&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/capacity" title="cpp/string/basic string/capacity"> <span class="t-lines"><span>capacity</span></span></a></div></div>
+</td>
+<td>   returns the number of characters that can be held in currently allocated storage  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_capacity&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/shrink_to_fit" title="cpp/string/basic string/shrink to fit"> <span class="t-lines"><span>shrink_to_fit</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>   reduces memory usage by freeing unused memory  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_shrink_to_fit&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+
+<tr>
+<td colspan="2"> <h5> <span class="mw-headline" id="Operations">  Operations </span></h5>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/clear" title="cpp/string/basic string/clear"> <span class="t-lines"><span>clear</span></span></a></div></div>
+</td>
+<td>   clears the contents <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_clear&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/insert" title="cpp/string/basic string/insert"> <span class="t-lines"><span>insert</span></span></a></div></div>
+</td>
+<td>   inserts characters <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_insert&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/erase" title="cpp/string/basic string/erase"> <span class="t-lines"><span>erase</span></span></a></div></div>
+</td>
+<td>   removes characters  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_erase&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/push_back" title="cpp/string/basic string/push back"> <span class="t-lines"><span>push_back</span></span></a></div></div>
+</td>
+<td>   appends a character to the end <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_push_back&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/pop_back" title="cpp/string/basic string/pop back"> <span class="t-lines"><span>pop_back</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>   removes the last character  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_pop_back&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/append" title="cpp/string/basic string/append"> <span class="t-lines"><span>append</span></span></a></div></div>
+</td>
+<td>   appends characters to the end <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_append&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/operator%2B%3D" title="cpp/string/basic string/operator+="> <span class="t-lines"><span>operator+=</span></span></a></div></div>
+</td>
+<td>   appends characters to the end <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_operator%2B%3D&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/compare" title="cpp/string/basic string/compare"> <span class="t-lines"><span>compare</span></span></a></div></div>
+</td>
+<td>   compares two strings <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_compare&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/starts_with" title="cpp/string/basic string/starts with"> <span class="t-lines"><span>starts_with</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div>
+</td>
+<td>   checks if the string starts with the given prefix  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_starts_with&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/ends_with" title="cpp/string/basic string/ends with"> <span class="t-lines"><span>ends_with</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div>
+</td>
+<td>   checks if the string ends with the given suffix  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_ends_with&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/contains" title="cpp/string/basic string/contains"> <span class="t-lines"><span>contains</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23">(C++23)</span></span></span></div></div>
+</td>
+<td>   checks if the string contains the given substring or character  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_contains&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/replace" title="cpp/string/basic string/replace"> <span class="t-lines"><span>replace</span></span></a></div></div>
+</td>
+<td>   replaces specified portion of a string <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_replace&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/substr" title="cpp/string/basic string/substr"> <span class="t-lines"><span>substr</span></span></a></div></div>
+</td>
+<td>   returns a substring <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_substr&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/copy" title="cpp/string/basic string/copy"> <span class="t-lines"><span>copy</span></span></a></div></div>
+</td>
+<td>   copies characters <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_copy&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/resize" title="cpp/string/basic string/resize"> <span class="t-lines"><span>resize</span></span></a></div></div>
+</td>
+<td>   changes the number of characters stored  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_resize&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/swap" title="cpp/string/basic string/swap"> <span class="t-lines"><span>swap</span></span></a></div></div>
+</td>
+<td>   swaps the contents  <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_swap&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+
+<tr>
+<td colspan="2"> <h5> <span class="mw-headline" id="Search">  Search </span></h5>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/find" title="cpp/string/basic string/find"> <span class="t-lines"><span>find</span></span></a></div></div>
+</td>
+<td>   find characters in the string <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_find&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/rfind" title="cpp/string/basic string/rfind"> <span class="t-lines"><span>rfind</span></span></a></div></div>
+</td>
+<td>   find the last occurrence of a substring <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_rfind&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/find_first_of" title="cpp/string/basic string/find first of"> <span class="t-lines"><span>find_first_of</span></span></a></div></div>
+</td>
+<td>   find first occurrence of characters <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_find_first_of&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/find_first_not_of" title="cpp/string/basic string/find first not of"> <span class="t-lines"><span>find_first_not_of</span></span></a></div></div>
+</td>
+<td>   find first absence of characters <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_find_first_not_of&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/find_last_of" title="cpp/string/basic string/find last of"> <span class="t-lines"><span>find_last_of</span></span></a></div></div>
+</td>
+<td>   find last occurrence of characters <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_find_last_of&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/find_last_not_of" title="cpp/string/basic string/find last not of"> <span class="t-lines"><span>find_last_not_of</span></span></a></div></div>
+</td>
+<td>   find last absence of characters <br> <span class="t-mark">(public member function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_find_last_not_of&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+
+<tr>
+<td colspan="2"> <h3> <span class="mw-headline" id="Constants"> Constants</span></h3>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/npos" title="cpp/string/basic string/npos"> <span class="t-lines"><span>npos</span></span></a></div><div><span class="t-lines"><span><span class="t-cmark">[static]</span></span></span></div></div>
+</td>
+<td>   special value. The exact meaning depends on the context <br> <span class="t-mark">(public static member constant)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_npos&amp;action=edit">[edit]</a></span>
+</td></tr>
+</tbody></table>
+<h3><span class="editsection">[<a href="https://en.cppreference.com/mwiki/index.php?title=cpp/string/basic_string&amp;action=edit&amp;section=4" title="Edit section: Non-member functions">edit</a>]</span> <span class="mw-headline" id="Non-member_functions">Non-member functions</span></h3>
+<table class="t-dsc-begin">
+
+<tbody><tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/operator%2B" title="cpp/string/basic string/operator+"> <span class="t-lines"><span>operator+</span></span></a></div></div>
+</td>
+<td>   concatenates two strings or a string and a char  <br> <span class="t-mark">(function template)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_operator%2B&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/operator_cmp" title="cpp/string/basic string/operator cmp"> <span class="t-lines"><span>operator==</span><span>operator!=</span><span>operator&lt;</span><span>operator&gt;</span><span>operator&lt;=</span><span>operator&gt;=</span><span>operator&lt;=&gt;</span></span></a></div><div><span class="t-lines"><span></span><span><span class="t-mark-rev t-until-cxx20">(removed in C++20)</span></span><span><span class="t-mark-rev t-until-cxx20">(removed in C++20)</span></span><span><span class="t-mark-rev t-until-cxx20">(removed in C++20)</span></span><span><span class="t-mark-rev t-until-cxx20">(removed in C++20)</span></span><span><span class="t-mark-rev t-until-cxx20">(removed in C++20)</span></span><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div>
+</td>
+<td>   lexicographically compares two strings  <br> <span class="t-mark">(function template)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_operator_cmp&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/swap2" title="cpp/string/basic string/swap2"> <span class="t-lines"><span>std::swap<span class="t-dsc-small">(std::basic_string)</span></span></span></a></div></div>
+</td>
+<td>   specializes the <span class="t-lc"><a href="https://en.cppreference.com/w/cpp/algorithm/swap" title="cpp/algorithm/swap">std::swap</a></span> algorithm <br> <span class="t-mark">(function template)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_swap2&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/erase2" title="cpp/string/basic string/erase2"> <span class="t-lines"><span>erase<span class="t-dsc-small">(std::basic_string)</span></span><span>erase_if<span class="t-dsc-small">(std::basic_string)</span></span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div>
+</td>
+<td>   Erases all elements satisfying specific criteria  <br> <span class="t-mark">(function template)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/container/dsc_erase_seq&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr>
+<td colspan="2"> <h5> <span class="mw-headline" id="Input.2Foutput">  Input/output </span></h5>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/operator_ltltgtgt" title="cpp/string/basic string/operator ltltgtgt"> <span class="t-lines"><span>operator&lt;&lt;</span><span>operator&gt;&gt;</span></span></a></div></div>
+</td>
+<td>   performs stream input and output on strings  <br> <span class="t-mark">(function template)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_operator_ltltgtgt&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/getline" title="cpp/string/basic string/getline"> <span class="t-lines"><span>getline</span></span></a></div></div>
+</td>
+<td>   read data from an I/O stream into a string <br> <span class="t-mark">(function template)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_getline&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+
+<tr>
+<td colspan="2"> <h5> <span class="mw-headline" id="Numeric_conversions">  Numeric conversions </span></h5>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/stol" title="cpp/string/basic string/stol"> <span class="t-lines"><span>stoi</span><span>stol</span><span>stoll</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>   converts a string to a signed integer  <br> <span class="t-mark">(function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_stol&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/stoul" title="cpp/string/basic string/stoul"> <span class="t-lines"><span>stoul</span><span>stoull</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>   converts a string to an unsigned integer  <br> <span class="t-mark">(function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_stoul&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/stof" title="cpp/string/basic string/stof"> <span class="t-lines"><span>stof</span><span>stod</span><span>stold</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>   converts a string to a floating point value  <br> <span class="t-mark">(function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_stof&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/to_string" title="cpp/string/basic string/to string"> <span class="t-lines"><span>to_string</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>   converts an integral or floating point value to <code>string</code>  <br> <span class="t-mark">(function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_to_string&amp;action=edit">[edit]</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/to_wstring" title="cpp/string/basic string/to wstring"> <span class="t-lines"><span>to_wstring</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>   converts an integral or floating point value to <code>wstring</code>  <br> <span class="t-mark">(function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_to_wstring&amp;action=edit">[edit]</a></span>
+</td></tr>
+</tbody></table>
+<h3><span class="editsection">[<a href="https://en.cppreference.com/mwiki/index.php?title=cpp/string/basic_string&amp;action=edit&amp;section=5" title="Edit section: Literals">edit</a>]</span> <span class="mw-headline" id="Literals">Literals</span></h3>
+<table class="t-dsc-begin">
+
+<tbody><tr class="t-dsc-header">
+<td colspan="2"> <div>Defined in inline namespace <code>std::literals::string_literals</code> </div>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/operator%22%22s" title="cpp/string/basic string/operator&quot;&quot;s"> <span class="t-lines"><span>operator""s</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx14">(C++14)</span></span></span></div></div>
+</td>
+<td>   Converts a character array literal to <code>basic_string</code>  <br> <span class="t-mark">(function)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_operator%22%22s&amp;action=edit">[edit]</a></span>
+</td></tr>
+</tbody></table>
+<h3><span class="editsection">[<a href="https://en.cppreference.com/mwiki/index.php?title=cpp/string/basic_string&amp;action=edit&amp;section=6" title="Edit section: Helper classes">edit</a>]</span> <span class="mw-headline" id="Helper_classes">Helper classes</span></h3>
+<table class="t-dsc-begin">
+
+<tbody><tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string/hash" title="cpp/string/basic string/hash"> <span class="t-lines"><span>std::hash<span class="t-dsc-small">&lt;std::string&gt;</span></span><span>std::hash<span class="t-dsc-small">&lt;std::u8string&gt;</span></span><span>std::hash<span class="t-dsc-small">&lt;std::u16string&gt;</span></span><span>std::hash<span class="t-dsc-small">&lt;std::u32string&gt;</span></span><span>std::hash<span class="t-dsc-small">&lt;std::wstring&gt;</span></span><span>std::hash<span class="t-dsc-small">&lt;std::pmr::string&gt;</span></span><span>std::hash<span class="t-dsc-small">&lt;std::pmr::u8string&gt;</span></span><span>std::hash<span class="t-dsc-small">&lt;std::pmr::u16string&gt;</span></span><span>std::hash<span class="t-dsc-small">&lt;std::pmr::u32string&gt;</span></span><span>std::hash<span class="t-dsc-small">&lt;std::pmr::wstring&gt;</span></span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx17">(C++17)</span></span><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span><span><span class="t-mark-rev t-since-cxx17">(C++17)</span></span><span><span class="t-mark-rev t-since-cxx17">(C++17)</span></span><span><span class="t-mark-rev t-since-cxx17">(C++17)</span></span></span></div></div>
+</td>
+<td>   hash support for strings  <br> <span class="t-mark">(class template specialization)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/basic_string/dsc_hash&amp;action=edit">[edit]</a></span>
+</td></tr>
+</tbody></table>
+<h3><span class="editsection">[<a href="https://en.cppreference.com/mwiki/index.php?title=cpp/string/basic_string&amp;action=edit&amp;section=7" title="Edit section: Deduction guides (since C++17)">edit</a>]</span> <span class="mw-headline" id="Deduction_guides_.28since_C.2B.2B17.29"><a href="https://en.cppreference.com/w/cpp/string/basic_string/deduction_guides" title="cpp/string/basic string/deduction guides">Deduction guides</a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span></span></h3>
+<h3><span class="editsection">[<a href="https://en.cppreference.com/mwiki/index.php?title=cpp/string/basic_string&amp;action=edit&amp;section=8" title="Edit section: Example">edit</a>]</span> <span class="mw-headline" id="Example">Example</span></h3>
+<div class="t-example"><div class="t-example-live-link"><div class="coliru-btn coliru-btn-run-init">Run this code</div></div>
+<div dir="ltr" class="mw-geshi t-example-code" style="text-align: left;"><div class="cpp source-cpp"><pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+&nbsp;
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">using</span> <span class="kw1">namespace</span> std<span class="sy4">::</span><span class="me2">literals</span><span class="sy4">;</span>
+&nbsp;
+    <span class="co1">// Creating a string from const char*</span>
+    std<span class="sy4">::</span><span class="me2">string</span> str1 <span class="sy1">=</span> <span class="st0">"hello"</span><span class="sy4">;</span>
+&nbsp;
+    <span class="co1">// Creating a string using string literal</span>
+    <span class="kw4">auto</span> str2 <span class="sy1">=</span> <span class="st0">"world"</span>s<span class="sy4">;</span>
+&nbsp;
+    <span class="co1">// Concatenating strings</span>
+    std<span class="sy4">::</span><span class="me2">string</span> str3 <span class="sy1">=</span> str1 <span class="sy2">+</span> <span class="st0">" "</span> <span class="sy2">+</span> str2<span class="sy4">;</span>
+&nbsp;
+    <span class="co1">// Print out the result</span>
+    <a href="http://en.cppreference.com/w/cpp/io/cout"><span class="kw1753">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> str3 <span class="sy1">&lt;&lt;</span> <span class="st0">'<span class="es1">\n</span>'</span><span class="sy4">;</span>
+&nbsp;
+    std<span class="sy4">::</span><span class="me2">string</span><span class="sy4">::</span><span class="me2">size_type</span> pos <span class="sy1">=</span> str3.<span class="me1">find</span><span class="br0">(</span><span class="st0">" "</span><span class="br0">)</span><span class="sy4">;</span>
+    str1 <span class="sy1">=</span> str3.<span class="me1">substr</span><span class="br0">(</span>pos <span class="sy2">+</span> <span class="nu0">1</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// the part after the space</span>
+    str2 <span class="sy1">=</span> str3.<span class="me1">substr</span><span class="br0">(</span><span class="nu0">0</span>, pos<span class="br0">)</span><span class="sy4">;</span>  <span class="co1">// the part till the space</span>
+&nbsp;
+    <a href="http://en.cppreference.com/w/cpp/io/cout"><span class="kw1753">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> str1 <span class="sy1">&lt;&lt;</span> <span class="st0">' '</span> <span class="sy1">&lt;&lt;</span> str2 <span class="sy1">&lt;&lt;</span> <span class="st0">'<span class="es1">\n</span>'</span><span class="sy4">;</span>
+&nbsp;
+    <span class="co1">// Accessing an element using subscript operator[]</span>
+    <a href="http://en.cppreference.com/w/cpp/io/cout"><span class="kw1753">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> str1<span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span> <span class="sy1">&lt;&lt;</span> <span class="st0">'<span class="es1">\n</span>'</span><span class="sy4">;</span>
+    str1<span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span> <span class="sy1">=</span> <span class="st0">'W'</span><span class="sy4">;</span>
+    <a href="http://en.cppreference.com/w/cpp/io/cout"><span class="kw1753">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> str1 <span class="sy1">&lt;&lt;</span> <span class="st0">'<span class="es1">\n</span>'</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div></div>
+<p>Output:
+</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="text source-text"><pre class="de1">hello world
+world hello
+w
+World</pre></div></div> 
+</div>
+<h3><span class="editsection">[<a href="https://en.cppreference.com/mwiki/index.php?title=cpp/string/basic_string&amp;action=edit&amp;section=9" title="Edit section: See also">edit</a>]</span> <span class="mw-headline" id="See_also">See also</span></h3>
+<table class="t-dsc-begin">
+
+<tbody><tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="https://en.cppreference.com/w/cpp/string/basic_string_view" title="cpp/string/basic string view"> <span class="t-lines"><span>basic_string_view</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17">(C++17)</span></span></span></div></div>
+</td>
+<td>   read-only string view  <br> <span class="t-mark">(class template)</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/dsc_basic_string_view&amp;action=edit">[edit]</a></span>
+</td></tr>
+</tbody></table>
+
+<!-- 
+NewPP limit report
+Preprocessor visited node count: 15946/1000000
+Preprocessor generated node count: 19630/1000000
+Post‐expand include size: 527983/2097152 bytes
+Template argument size: 114465/2097152 bytes
+Highest expansion depth: 23/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key mwiki1-mwiki_en_:pcache:idhash:1389-0!*!0!!en!*!* and timestamp 20210530175211 -->
+</div>                    <!-- /bodycontent -->
+                                        <!-- printfooter -->
+                    <div class="printfooter">
+                    Retrieved from "<a href="https://en.cppreference.com/mwiki/index.php?title=cpp/string/basic_string&amp;oldid=128956">https://en.cppreference.com/mwiki/index.php?title=cpp/string/basic_string&amp;oldid=128956</a>"                    </div>
+                    <!-- /printfooter -->
+                                                            <!-- catlinks -->
+                    <div id="catlinks" class="catlinks catlinks-allhidden"><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden category: <ul><li><a href="https://en.cppreference.com/w/Category:Pages_with_unreviewed_LWG_DR_marker" title="Category:Pages with unreviewed LWG DR marker">Pages with unreviewed LWG DR marker</a></li></ul></div></div>                    <!-- /catlinks -->
+                                                            <div class="visualClear"></div>
+                    <!-- debughtml -->
+                                        <!-- /debughtml -->
+                </div>
+                <!-- /bodyContent -->
+            </div>
+        </div>
+        <!-- /content -->
+        <!-- footer -->
+        <div id="cpp-footer-base" class="noprint">
+            <div id="footer">
+                        <div id="cpp-navigation">
+            <h5>Navigation</h5>
+            <ul>
+<li id="n-Support-us"><a href="http://www.cppreference.com/support" rel="nofollow">Support us</a></li><li id="n-recentchanges"><a href="https://en.cppreference.com/w/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-FAQ"><a href="https://en.cppreference.com/w/Cppreference:FAQ">FAQ</a></li><li id="n-Offline-version"><a href="https://en.cppreference.com/w/Cppreference:Archives">Offline version</a></li>            </ul>
+        </div>
+                        <div id="cpp-toolbox">
+            <h5><span>Toolbox</span><a href="https://en.cppreference.com/w/cpp/string/basic_string#"></a></h5>
+            <ul>
+<li id="t-whatlinkshere"><a href="https://en.cppreference.com/w/Special:WhatLinksHere/cpp/string/basic_string" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://en.cppreference.com/w/Special:RecentChangesLinked/cpp/string/basic_string" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-upload"><a href="http://upload.cppreference.com/w/Special:Upload" title="Upload files [u]" accesskey="u">Upload file</a></li><li id="t-specialpages"><a href="https://en.cppreference.com/w/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="https://en.cppreference.com/mwiki/index.php?title=cpp/string/basic_string&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://en.cppreference.com/mwiki/index.php?title=cpp/string/basic_string&amp;oldid=128956" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://en.cppreference.com/mwiki/index.php?title=cpp/string/basic_string&amp;action=info">Page information</a></li>            </ul>
+        </div>
+                        <div id="cpp-languages">
+            <div><ul><li>In other languages</li></ul></div>
+            <div><ul>
+<li class="interwiki-de"><a href="http://de.cppreference.com/w/cpp/string/basic_string" title="cpp/string/basic string" lang="de" hreflang="de">Deutsch</a></li><li class="interwiki-es"><a href="http://es.cppreference.com/w/cpp/string/basic_string" title="cpp/string/basic string" lang="es" hreflang="es">Español</a></li><li class="interwiki-fr"><a href="http://fr.cppreference.com/w/cpp/string/basic_string" title="cpp/string/basic string" lang="fr" hreflang="fr">Français</a></li><li class="interwiki-it"><a href="http://it.cppreference.com/w/cpp/string/basic_string" title="cpp/string/basic string" lang="it" hreflang="it">Italiano</a></li><li class="interwiki-ja"><a href="http://ja.cppreference.com/w/cpp/string/basic_string" title="cpp/string/basic string" lang="ja" hreflang="ja">日本語</a></li><li class="interwiki-pl"><a href="http://pl.cppreference.com/w/cpp/string/basic_string" title="cpp/string/basic string" lang="pl" hreflang="pl">Polski</a></li><li class="interwiki-pt"><a href="http://pt.cppreference.com/w/cpp/string/basic_string" title="cpp/string/basic string" lang="pt" hreflang="pt">Português</a></li><li class="interwiki-ru"><a href="http://ru.cppreference.com/w/cpp/string/basic_string" title="cpp/string/basic string" lang="ru" hreflang="ru">Русский</a></li><li class="interwiki-tr"><a href="http://tr.cppreference.com/w/cpp/string/basic_string" title="cpp/string/basic string" lang="tr" hreflang="tr">Türkçe</a></li><li class="interwiki-zh"><a href="http://zh.cppreference.com/w/cpp/string/basic_string" title="cpp/string/basic string" lang="zh" hreflang="zh">中文</a></li>            </ul></div>
+        </div>
+            <ul id="footer-info">
+                                    <li id="footer-info-lastmod"> This page was last modified on 25 May 2021, at 20:22.</li>
+                                    <li id="footer-info-viewcount">This page has been accessed 4,326,838 times.</li>
+                            </ul>
+                    <ul id="footer-places">
+                                    <li id="footer-places-privacy"><a href="https://en.cppreference.com/w/Cppreference:Privacy_policy" title="Cppreference:Privacy policy">Privacy policy</a></li>
+                                    <li id="footer-places-about"><a href="https://en.cppreference.com/w/Cppreference:About" title="Cppreference:About">About cppreference.com</a></li>
+                                    <li id="footer-places-disclaimer"><a href="https://en.cppreference.com/w/Cppreference:General_disclaimer" title="Cppreference:General disclaimer">Disclaimers</a></li>
+                            </ul>
+                                    <ul id="footer-icons" class="noprint">
+                                    <li id="footer-poweredbyico">
+                                            <a href="https://www.mediawiki.org/"><img src="./std__basic_string - cppreference.com_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31"></a>                                            <a href="http://qbnz.com/highlighter/"><img src="./std__basic_string - cppreference.com_files/powered_by_geshi_88x31.png" alt="Powered by GeSHi" height="31" width="88"></a>                                            <a href="http://www.tigertech.net/referral/cppreference.com"><img src="./std__basic_string - cppreference.com_files/powered_by_tigertech_88x31.png" alt="Hosted by Tiger Technologies" height="31" width="88"></a>                                        </li>
+                                </ul>
+                        <div style="clear:both">
+            </div>
+            </div>
+        </div>
+        <!-- /footer -->
+        <script>if(window.mw){
+mw.loader.state({"site":"loading","user":"missing","user.groups":"ready"});
+}</script>
+<script src="./std__basic_string - cppreference.com_files/load(6).php"></script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.postEdit","mediawiki.user","mediawiki.page.ready","mediawiki.searchSuggest","mediawiki.hidpi","ext.gadget.ColiruCompiler","ext.gadget.MathJax"], null, true);
+}</script>
+<script src="./std__basic_string - cppreference.com_files/load(7).php"></script>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./std__basic_string - cppreference.com_files/ga.js.download" type="text/javascript"></script>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-2828341-1']);
+_gaq.push(['_setDomainName', 'cppreference.com']);
+_gaq.push(['_trackPageview']);
+</script><!-- Served in 3.812 secs. -->
+	
+<!-- Cached 20210530175211 -->
+
+<div id="mouseposition-extension-element-full-container" style="position: fixed; inset: 0px; pointer-events: none; z-index: 2147483647; font-weight: 400;"><div id="mouseposition-extension-element-rect-display" style="display: none; position: absolute; background: rgba(255, 255, 255, 0.7); outline: black solid 1px; font-size: 12px; z-index: 2147483647; justify-content: center; align-items: center; user-select: none; cursor: default; color: rgb(0, 0, 0); font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; width: 0px; height: 0px;"><pre style="flex: 1 1 0%; text-align: center; background-color: rgba(255, 255, 255, 0.7); color: rgb(0, 0, 0); min-width: 42px; min-height: 12px; transition: all 1s ease 0s;"></pre></div><pre id="mouseposition-extension-element-coordinate-display" style="position: absolute; display: none; background: rgb(255, 255, 255); font-size: 12px; line-height: 14px; border-radius: 3px; border-width: 1px; border-color: rgb(34, 34, 34) black rgb(51, 51, 51); border-style: solid; padding: 3px; z-index: 2147483647; color: rgb(34, 34, 34); user-select: none; cursor: default; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;"></pre></div></body></html>
